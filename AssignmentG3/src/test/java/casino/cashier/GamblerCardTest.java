@@ -91,9 +91,21 @@ public class GamblerCardTest {
     }
 
     @Test
-    public void test_returnAllBEtsClear_CorectLIstIsReturenedCardsAreDeleted() {
+    public void test_returnAllBetsClear_CorectLIstIsReturenedCardsAreDeleted() {
         //arrange
+        Integer numberOfBets = 5;
         //act
+
+        for(int i = 0 ; i < numberOfBets; i++)
+        myCard.generateNewBetID();
+
+        Set<BetID> betIds =  myCard.returnBetIDs();
+        Set<BetID> result_clear = myCard.returnBetIDsAndClearCard();
+        Set<BetID> betIDsCleared = myCard.returnBetIDs();
         //assert
+
+        Assertions.assertThat(result_clear).isEqualTo(betIds);
+        Assertions.assertThat(betIDsCleared).isEmpty();
+
     }
 }
