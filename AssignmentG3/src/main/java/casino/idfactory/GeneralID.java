@@ -18,13 +18,5 @@ public abstract class GeneralID {
     }
 
     // TODO: implement necessary code. Add WHY you need it.
-    public static GeneralID generateID(String idType){
-        switch (idType){
-            case "BetID":return new BetID();
-            case "BettingRoundID":return new BettingRoundID();
-            case "CardID":return new CardID();
-            case "GamingMachineID":return new GamingMachineID();
-            default:return null;
-        }
-    };
+
 }

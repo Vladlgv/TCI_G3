@@ -30,7 +30,7 @@ public class GamblerCard implements IGamblerCard {
 
     @Override
     public int getNumberOfBetIDs() {
-        return 0;
+        return ((int) betIDS.size());
     }
 
     @Override
