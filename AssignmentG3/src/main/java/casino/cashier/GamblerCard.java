@@ -14,13 +14,13 @@ public class GamblerCard implements IGamblerCard {
 
     private CardID cardID;
     private MoneyAmount cardAmount;
+    //BetIDS
+    private Set<BetID> betIDS=new HashSet<BetID>();
 
     public GamblerCard(CardID cardID,MoneyAmount cardAmount){
         this.cardID=cardID;
         this.cardAmount=cardAmount;
     }
-    //BetIDS
-    private Set<BetID> betIDS=new HashSet<BetID>();
 
     @Override
     public Set<BetID> returnBetIDs() {
@@ -29,8 +29,10 @@ public class GamblerCard implements IGamblerCard {
 
     @Override
     public Set<BetID> returnBetIDsAndClearCard() {
-
-        return null;
+        Set<BetID> tempSetBetIDs=new HashSet<BetID>();
+        tempSetBetIDs.addAll(this.betIDS);
+        this.betIDS.clear();
+        return tempSetBetIDs;
     }
 
     @Override
