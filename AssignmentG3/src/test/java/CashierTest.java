@@ -98,8 +98,12 @@ public class CashierTest {
         GamblerCard gamblerCard = mock(GamblerCard.class);
         Bet bet = mock(Bet.class);
 
+        when(gamblerCard.getAmount()).thenReturn(100l);
+        when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(50l));
         //Act
         Boolean result = cashier.checkIfBetIsValid(gamblerCard,bet);
 
+        //Assert
+        assertEquals(true,result);
     }
 }
