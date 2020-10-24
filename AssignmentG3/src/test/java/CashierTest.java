@@ -35,9 +35,13 @@ public class CashierTest {
     @Test
     public void test_RemoveAmountInCard_Works(){
         //Arrange
-        GamblerCard gamblerCard = mock(GamblerCard.class);
+        CardID cardID=mock(CardID.class);
+        MoneyAmount cardAmount=mock(MoneyAmount.class);
+
+        GamblerCard gamblerCard = new GamblerCard(cardID,cardAmount);
         //Act
         cashier.returnGamblerCard(gamblerCard);
-
+        //Assert
+        assertEquals(0,gamblerCard.getCardAmount());
     }
 }
