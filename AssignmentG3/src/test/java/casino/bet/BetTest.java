@@ -26,9 +26,10 @@ public class BetTest {
     }
 
     @Test
-    public void TheNewBetIsExisted(){
+    public void UniqueBetID(){
         Set<BetID> betIDS=new HashSet<BetID>();
 
+        //test with 10 times generating BetID
         for (int i = 0; i < 10 ; i++) {
             betIDS.add((BetID)IDFactory.generateID("BetID"));
         }
