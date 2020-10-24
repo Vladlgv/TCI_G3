@@ -8,6 +8,7 @@ import casino.cashier.BetNotExceptedException;
 import casino.cashier.ICashier;
 import casino.cashier.IGamblerCard;
 import casino.cashier.InvalidAmountException;
+import casino.game.IGame;
 import casino.idfactory.BetID;
 import casino.idfactory.GamingMachineID;
 
@@ -21,11 +22,13 @@ public class GamingMachine implements IGamingMachine {
     private GamingMachineID gamingMachineID;
     private IGamblerCard connectedCard;
     private Set<Bet> openBets=new HashSet<Bet>();
+    private IGame iGame;
 
-    public GamingMachine(GamingMachineID gamingMachineID,ICashier cashier){
+    public GamingMachine(GamingMachineID gamingMachineID,ICashier cashier,IGame igame){
         this.gamingMachineID=gamingMachineID;
         this.connectedCard=null;
         this.cashier=cashier;
+        this.iGame=igame;
     }
 
     @Override
@@ -64,7 +67,12 @@ public class GamingMachine implements IGamingMachine {
 
     @Override
     public void disconnectCard() throws CurrentBetMadeException {
-        this.connectedCard=null;
+        if(this.iGame.isBettingRoundFinished()){
+            this.connectedCard=null;
+        }else{
+            throw new CurrentBetMadeException();
+        }
+
     }
 
     @Override

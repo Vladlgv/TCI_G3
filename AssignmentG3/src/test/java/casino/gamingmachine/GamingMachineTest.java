@@ -7,6 +7,7 @@ import casino.cashier.BetNotExceptedException;
 import casino.cashier.Cashier;
 import casino.cashier.GamblerCard;
 import casino.cashier.InvalidAmountException;
+import casino.game.IGame;
 import casino.idfactory.BetID;
 import casino.idfactory.GamingMachineID;
 import casino.idfactory.IDFactory;
@@ -20,7 +21,8 @@ public class GamingMachineTest {
     IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
     Cashier cashier=new Cashier(betLoggingAuthority);//use real Cashier to distribute cards, not mock Cashier
     GamingMachineID gamingMachineID=mock(GamingMachineID.class);
-    GamingMachine gameMachine=new GamingMachine(gamingMachineID,cashier);
+    IGame iGame=mock(IGame.class);
+    GamingMachine gameMachine=new GamingMachine(gamingMachineID,cashier,iGame);
     GamblerCard gamblerCard=(GamblerCard)cashier.distributeGamblerCard();
 
     @Test(expected = BetNotExceptedException.class)
@@ -61,6 +63,7 @@ public class GamingMachineTest {
     @Test
     public void CheckIfCardIsDisconnected() throws CurrentBetMadeException {
         gameMachine.connectCard(gamblerCard);
+        when(iGame.isBettingRoundFinished()).thenReturn(true);
         gameMachine.disconnectCard();
         assertEquals(null,gameMachine.getConnectedCard());
     }
@@ -68,5 +71,11 @@ public class GamingMachineTest {
     @Test(expected = NoPlayerCardException.class)
     public void NoConnectedCardToPlaceBet() throws NoPlayerCardException, BetNotExceptedException {
         gameMachine.placeBet(10);
+    }
+
+    @Test(expected = CurrentBetMadeException.class)
+    public void CheckIfCardIsConnectedWhenOpenBet() throws CurrentBetMadeException {
+        when(iGame.isBettingRoundFinished()).thenReturn(false);
+        gameMachine.disconnectCard();
     }
 }
