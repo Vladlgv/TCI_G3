@@ -22,12 +22,14 @@ public class Cashier implements ICashier {
     }
 
     @Override
-    public boolean checkIfBetIsValid(IGamblerCard card, Bet betToCheck) throws BetNotExceptedException {
+    public boolean checkIfBetIsValid(IGamblerCard card, Bet betToCheck){
         return false;
     }
 
     @Override
     public void addAmount(IGamblerCard card, MoneyAmount amount) throws InvalidAmountException {
-
+        if(amount.getAmountInCents()<0){
+            throw new InvalidAmountException();
+        }
     }
 }
