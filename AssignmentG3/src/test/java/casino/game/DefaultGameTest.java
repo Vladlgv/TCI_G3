@@ -20,7 +20,9 @@ import static org.mockito.Mockito.*;
 public class DefaultGameTest {
 
 
-    DefaultGame myGame = new DefaultGame();
+    BettingRound bettingRound = mock(BettingRound.class);
+
+    DefaultGame myGame = new DefaultGame(bettingRound);
 
     ///
     //Test that tries to start a new betting round after a betting round was not previously started.
@@ -28,7 +30,6 @@ public class DefaultGameTest {
     @Test
     public void test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated() {
         //arrange
-        DefaultGame myGame = new DefaultGame();
         //act
         myGame.startBettingRound();
         //assert
@@ -55,18 +56,7 @@ public class DefaultGameTest {
         //assert
         Assertions.assertThat(myGame.getCurrentBettingRound().getBettingRoundID()).isNotSameAs(currentBettingRound);
     }
-    /**
-     * Accept a bet on the current betting round.
-     * determine if the betting round is finished, if so: determine the winner,
-     * notify the connected gaming machines and start a new betting round.
-     *
-     * Note: also use the appropiate required methods from the gambling authority API
-     *
-     * @param bet the bet to be made on the betting round
-     * @param gamingMachine gamingmachine which places bet on this game.
-     * @return true when bet is accepted by the game, otherwise false.
-     * @throws NoCurrentRoundException when no BettingRound is currently active.
-     */
+
     ///
     //Test to see if a bet that is supposed to be valid is indeed valid;
     ///
@@ -76,8 +66,9 @@ public class DefaultGameTest {
         IGamingMachine mockGamingMachine= mock(GamingMachine.class);
         Bet mockBet = mock(Bet.class);
         MoneyAmount m = mock(MoneyAmount.class);
+        when(bettingRound.placeBet(mockBet)).thenReturn(true);
         long amountToReturn = 1000;
-        DefaultGame spyGame = spy(DefaultGame.class);
+        //DefaultGame spyGame = spy(DefaultGame.class);
 
         when(mockBet.getBetID()).thenReturn((BetID) IDFactory.generateID("BetID"));
         when(m.getAmountInCents()).thenReturn(amountToReturn);
@@ -89,7 +80,7 @@ public class DefaultGameTest {
         //act
         boolean gameAccepted = myGame.acceptBet(mockBet,mockGamingMachine);
         //assert
-        verify(myGame).acceptBet(mockBet,mockGamingMachine);
+       // verify(myGame).acceptBet(mockBet,mockGamingMachine);
         Assertions.assertThat(gameAccepted).isTrue();
 
     }

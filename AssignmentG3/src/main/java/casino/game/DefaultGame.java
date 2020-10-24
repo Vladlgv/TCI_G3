@@ -27,11 +27,15 @@ public class DefaultGame extends AbstractGame {
         return currentBettingRound;
     }
 
-    public DefaultGame() {
+    // need to mock the functionality that comes from the betting round and also in the beging the first betting round should be given by the
+    //creating class.
+    public DefaultGame(BettingRound currentBettingRound) {
         this.bettingAuthority = new BettingAuthority();
         this.connectedGamingMachines = new HashSet<>();
+        this.currentBettingRound = currentBettingRound;
     }
 
+    //continue it make more tests for not happy paths
     @Override
     public void startBettingRound() {
     if(currentBettingRound == null) {
@@ -41,24 +45,42 @@ public class DefaultGame extends AbstractGame {
     else if(this.isBettingRoundFinished())
     {
        BetToken myBetToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
-        BetResult myBetResult = new BetResult(, new MoneyAmount(100));
-        bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,myBetToken);
+       // BetResult myBetResult = new BetResult(, new MoneyAmount(100));
+       // bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,myBetToken);
         bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());
 
     }
 
     }
-
+    /**
+     * Accept a bet on the current betting round.
+     * determine if the betting round is finished, if so: determine the winner,
+     * notify the connected gaming machines and start a new betting round.
+     *
+     * Note: also use the appropiate required methods from the gambling authority API
+     *
+     * @param bet the bet to be made on the betting round
+     * @param gamingMachine gamingmachine which places bet on this game.
+     * @return true when bet is accepted by the game, otherwise false.
+     * @throws NoCurrentRoundException when no BettingRound is currently active.
+     */
     @Override
     public boolean acceptBet(Bet bet, IGamingMachine gamingMachine) throws NoCurrentRoundException {
        if(currentBettingRound == null)
            throw new NoCurrentRoundException();
        else
        {
-           bettingAuthority.getTokenAuthority().
+           boolean betAccepted = currentBettingRound.placeBet(bet);
+           connectedGamingMachines.add((GamingMachine)gamingMachine);
+           if(betAccepted) {
+               bettingAuthority.getLoggingAuthority().logAddAcceptedBet(bet, currentBettingRound.getBettingRoundID(), gamingMachine.getGamingMachineID());
+               return true;
+           }
+           else
+           {
+               return  false;
+           }
        }
-
-        return false;
     }
 
     @Override
