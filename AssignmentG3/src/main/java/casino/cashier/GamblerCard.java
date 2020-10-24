@@ -3,13 +3,17 @@ package casino.cashier;
 
 import casino.idfactory.BetID;
 import casino.idfactory.CardID;
+import casino.idfactory.IDFactory;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class GamblerCard implements IGamblerCard {
+
+    private Set<BetID> betIDS=new HashSet<BetID>();
     @Override
     public Set<BetID> returnBetIDs() {
-        return null;
+        return this.betIDS;
     }
 
     @Override
@@ -19,7 +23,9 @@ public class GamblerCard implements IGamblerCard {
 
     @Override
     public BetID generateNewBetID() {
-        return null;
+        BetID newBetID= (BetID) IDFactory.generateID("BetID");
+        this.betIDS.add(newBetID);
+        return newBetID;
     }
 
     @Override

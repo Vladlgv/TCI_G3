@@ -1,6 +1,8 @@
 package gamblingauthoritiy;
 
 
+import casino.idfactory.BettingRoundID;
+
 /**
  * See interface for described behaviour
  *
