@@ -73,7 +73,7 @@ public class CashierTest {
         when(money2.getAmountInCents()).thenReturn(-100l);
         GamblerCard gamblerCard = new GamblerCard(cardID,money);
         //Act
-        cashier.addAmount(gamblerCard,money);
+        cashier.addAmount(gamblerCard,money2);
 
         //Assert
         assertEquals(0l,gamblerCard.getAmount());
