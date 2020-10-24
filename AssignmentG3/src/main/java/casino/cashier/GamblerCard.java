@@ -23,8 +23,15 @@ public class GamblerCard implements IGamblerCard {
     }
 
     @Override
-    public Set<BetID> returnBetIDsAndClearCard() {
-        return null;
+    public synchronized Set<BetID>  returnBetIDsAndClearCard() {
+        synchronized (betIDS)
+        {
+            Set<BetID> betIDSCopy = new HashSet<>();
+            betIDSCopy = Set.copyOf(betIDSCopy);
+            betIDS.clear();
+            return betIDSCopy;
+        }
+
     }
 
     @Override
