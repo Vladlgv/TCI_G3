@@ -35,4 +35,5 @@ public interface IGamblerCard {
 
     CardID getCardID();
     MoneyAmount getCardAmount();
+    long getAmount();
 }

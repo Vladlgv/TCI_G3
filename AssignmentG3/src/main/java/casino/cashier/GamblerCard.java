@@ -56,4 +56,9 @@ public class GamblerCard implements IGamblerCard {
     public MoneyAmount getCardAmount() {
         return this.cardAmount;
     }
+
+    @Override
+    public long getAmount() {
+        return this.cardAmount.getAmountInCents();
+    }
 }

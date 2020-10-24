@@ -37,11 +37,12 @@ public class CashierTest {
         //Arrange
         CardID cardID=mock(CardID.class);
         MoneyAmount cardAmount=mock(MoneyAmount.class);
-
+        when(cardAmount.getAmountInCents()).thenReturn(100l);
         GamblerCard gamblerCard = new GamblerCard(cardID,cardAmount);
+
         //Act
         cashier.returnGamblerCard(gamblerCard);
         //Assert
-        assertEquals(0,gamblerCard.getCardAmount());
+        assertEquals(100l,gamblerCard.getAmount());
     }
 }
