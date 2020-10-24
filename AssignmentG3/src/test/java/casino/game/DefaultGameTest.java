@@ -73,7 +73,6 @@ public class DefaultGameTest {
         when(mockBet.getBetID()).thenReturn((BetID) IDFactory.generateID("BetID"));
         when(m.getAmountInCents()).thenReturn(amountToReturn);
         when(mockBet.getMoneyAmount()).thenReturn(m);
-
         when(mockGamingMachine.getGamingMachineID()).thenReturn((GamingMachineID)IDFactory.generateID("GamingMachineID"));
 
 
@@ -82,6 +81,63 @@ public class DefaultGameTest {
         //assert
        // verify(myGame).acceptBet(mockBet,mockGamingMachine);
         Assertions.assertThat(gameAccepted).isTrue();
+
+    }
+
+    ///
+    //Test to see if a bet that is supposed to not be valid is indeed not valid;
+    ///
+    @Test
+    public void test_InvalidBet_BetIsUnSuccessful() throws NoCurrentRoundException {
+        //arrange
+        IGamingMachine mockGamingMachine= mock(GamingMachine.class);
+        Bet mockBet = mock(Bet.class);
+        MoneyAmount m = mock(MoneyAmount.class);
+        when(bettingRound.placeBet(mockBet)).thenReturn(false);
+        long amountToReturn = 0;
+        //DefaultGame spyGame = spy(DefaultGame.class);
+
+        when(mockBet.getBetID()).thenReturn(null);
+        when(m.getAmountInCents()).thenReturn(amountToReturn);
+        when(mockBet.getMoneyAmount()).thenReturn(m);
+        when(mockGamingMachine.getGamingMachineID()).thenReturn((GamingMachineID)IDFactory.generateID("GamingMachineID"));
+
+
+        //act
+        boolean gameAccepted = myGame.acceptBet(mockBet,mockGamingMachine);
+        //assert
+        // verify(myGame).acceptBet(mockBet,mockGamingMachine);
+        Assertions.assertThat(gameAccepted).isFalse();
+
+    }
+
+
+    ///
+    //throws an NoCurrentRoundException
+    ///
+    @Test//(expected = NoCurrentRoundException.class)
+    public void test_ThrowException_ThrowNoCurrentRoundException() throws NoCurrentRoundException {
+        //arrange
+        DefaultGame differentDefaultGame = new DefaultGame(null);
+        IGamingMachine mockGamingMachine= mock(GamingMachine.class);
+        Bet mockBet = mock(Bet.class);
+        MoneyAmount m = mock(MoneyAmount.class);
+        long amountToReturn = 0;
+        //DefaultGame spyGame = spy(DefaultGame.class);
+
+        when(mockBet.getBetID()).thenReturn(null);
+        when(m.getAmountInCents()).thenReturn(amountToReturn);
+        when(mockBet.getMoneyAmount()).thenReturn(m);
+        when(mockGamingMachine.getGamingMachineID()).thenReturn((GamingMachineID)IDFactory.generateID("GamingMachineID"));
+
+
+        //act
+        try {
+            boolean gameAccepted = differentDefaultGame.acceptBet(mockBet, mockGamingMachine);
+        }catch (Exception e) {
+            //assert
+            Assertions.assertThat(e).isInstanceOf(NoCurrentRoundException.class);
+        }
 
     }
 
