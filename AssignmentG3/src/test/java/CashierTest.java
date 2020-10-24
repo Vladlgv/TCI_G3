@@ -62,4 +62,20 @@ public class CashierTest {
         //Assert
         assertEquals(money.getAmountInCents()*2,gamblerCard.getAmount());
     }
+
+    @Test
+    public void test_ExtractMoney_Works() throws InvalidAmountException {
+        //Arrange
+        CardID cardID=mock(CardID.class);
+        MoneyAmount money=mock(MoneyAmount.class);
+        MoneyAmount money2=mock(MoneyAmount.class);
+        when(money.getAmountInCents()).thenReturn(100l);
+        when(money2.getAmountInCents()).thenReturn(-100l);
+        GamblerCard gamblerCard = new GamblerCard(cardID,money);
+        //Act
+        cashier.addAmount(gamblerCard,money);
+
+        //Assert
+        assertEquals(0l,gamblerCard.getAmount());
+    }
 }
