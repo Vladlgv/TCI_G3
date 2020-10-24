@@ -19,21 +19,22 @@ public class GamblerCardTest {
         return new Object[]{
                 new Object[]{i1},
                 new Object[]{i2},
-                 new Object[]{i3},
+                new Object[]{i3},
                 new Object[]{i4}
         };
     }
 
     @Test
     @Parameters(method = "getRightValues")
-    public void test_GetNumberOfBetIds_ReturnsRightNumber(int result) {
+    public void test_GetNumberOfBetIds_ReturnsRightNumber(int numberOfBetIds) {
         //arrange
         IGamblerCard myCard = new GamblerCard();
         //act
-        for(int i = 0 ; i< result ; i++)
+        for(int i = 0 ; i< numberOfBetIds ; i++)
         myCard.generateNewBetID();
+        int expectedResult = myCard.getNumberOfBetIDs();
         //assert
-        Assertions.assertThat(myCard).isEqualTo(result);
+        Assertions.assertThat(expectedResult).isEqualTo(numberOfBetIds);
     }
 
     @Test
