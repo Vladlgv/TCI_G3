@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.cashier.GamblerCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-24T12:49:23" hostname="DESKTOP-QCAEEEG" time="0.007">
+<testsuite name="casino.cashier.GamblerCardTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-24T13:08:25" hostname="DESKTOP-QCAEEEG" time="0.008">
   <properties/>
-  <testcase name="test_GetCardId_isNotNull" classname="casino.cashier.GamblerCardTest" time="0.007"/>
+  <testcase name="test_ReturnBetIds_SuccessfullyReturnsListOfBetIds" classname="casino.cashier.GamblerCardTest" time="0.008"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

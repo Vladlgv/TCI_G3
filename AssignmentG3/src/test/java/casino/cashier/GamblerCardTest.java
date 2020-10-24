@@ -65,6 +65,21 @@ public class GamblerCardTest {
 
     }
 
+    @Test
+    public void test_ReturnBetIds_SuccessfullyReturnsListOfBetIds() {
+        //arrange
+        //act
+        myCard.generateNewBetID();
+        myCard.generateNewBetID();
+        myCard.generateNewBetID();
+        Set<BetID> results = myCard.returnBetIDs();
+        //assert
+        Assertions.assertThat(results).doesNotHaveDuplicates().isNotEmpty().isNotNull();
+        for(BetID result: results)
+        {
+            Assertions.assertThat(result).isInstanceOf(BetID.class);
+        }
+    }
 
     @Test
     public void test_GetCardId_isNotNull() {
