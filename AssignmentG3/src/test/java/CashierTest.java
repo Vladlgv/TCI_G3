@@ -1,16 +1,15 @@
+import casino.bet.Bet;
 import casino.bet.MoneyAmount;
-import casino.cashier.Cashier;
-import casino.cashier.GamblerCard;
-import casino.cashier.InvalidAmountException;
+import casino.cashier.*;
 import casino.idfactory.BetID;
 import casino.idfactory.CardID;
 import gamblingauthoritiy.BetLoggingAuthority;
 import gamblingauthoritiy.IBetLoggingAuthority;
+import org.junit.Assert;
 import org.junit.Test;
 
-import static org.mockito.Mockito.mock;
 import static  org.junit.Assert.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class CashierTest {
     IBetLoggingAuthority loggingAuthority= new BetLoggingAuthority();
@@ -77,5 +76,36 @@ public class CashierTest {
 
         //Assert
         assertEquals(0l,gamblerCard.getAmount());
+    }
+
+    @Test
+    public void  test_CardDistributedToGambler_CreateCardSuccessfully(){
+        //Arrange
+        CardID cardID=mock(CardID.class);
+        MoneyAmount cardAmount=mock(MoneyAmount.class);
+
+        GamblerCard gamblerCard1 = new GamblerCard(cardID,cardAmount);
+        //act
+        IGamblerCard gamblerCard2 = cashier.distributeGamblerCard();
+
+        //Assert
+        //verify()
+    }
+
+    @Test
+    public void test_CheckBetValid_ReturnsTrue() throws BetNotExceptedException {
+        //Arrange
+        CardID cardID=mock(CardID.class);
+        MoneyAmount cardAmount=mock(MoneyAmount.class);
+
+        GamblerCard gamblerCard = new GamblerCard(cardID,cardAmount);
+
+        Bet bet = mock(Bet.class);
+
+        //Act
+        Boolean result = cashier.checkIfBetIsValid(gamblerCard,bet);
+
+        //Assert
+        assertEquals(true,result);
     }
 }

@@ -3,6 +3,7 @@ package casino.cashier;
 
 import casino.bet.Bet;
 import casino.bet.MoneyAmount;
+import casino.idfactory.CardID;
 import gamblingauthoritiy.IBetLoggingAuthority;
 
 public class Cashier implements ICashier {
@@ -13,7 +14,8 @@ public class Cashier implements ICashier {
 
     @Override
     public IGamblerCard distributeGamblerCard() {
-        return null;
+        GamblerCard newGamblerCard = new GamblerCard(new CardID(),new MoneyAmount(0l));
+        return newGamblerCard;
     }
 
     @Override
