@@ -35,7 +35,7 @@ public class CashierTest {
     @Test
     public void test_RemoveAmountInCard_Works(){
         //Arrange
-
+        GamblerCard gamblerCard = mock(GamblerCard.class);
         //Act
         cashier.returnGamblerCard(gamblerCard);
 
