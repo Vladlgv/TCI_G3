@@ -1,6 +1,7 @@
 import casino.bet.MoneyAmount;
 import casino.cashier.Cashier;
 import casino.cashier.GamblerCard;
+import casino.cashier.InvalidAmountException;
 import casino.idfactory.BetID;
 import casino.idfactory.CardID;
 import gamblingauthoritiy.BetLoggingAuthority;
@@ -45,5 +46,15 @@ public class CashierTest {
         cashier.returnGamblerCard(gamblerCard);
         //Assert
         assertEquals(0l,gamblerCard.getAmount());
+    }
+
+    @Test
+    public void test_AddMoneyToCard_Works() throws InvalidAmountException {
+        //Arrange
+
+        //Act
+        cashier.addAmount(gamblerCard,money);
+
+        //Assert
     }
 }

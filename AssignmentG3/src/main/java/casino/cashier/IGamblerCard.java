@@ -36,4 +36,6 @@ public interface IGamblerCard {
     CardID getCardID();
     MoneyAmount getCardAmount();
     long getAmount();
+    void setCardAmount(long amount);
+    void clearCardAmount();
 }

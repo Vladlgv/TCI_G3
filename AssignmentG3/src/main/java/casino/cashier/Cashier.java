@@ -18,7 +18,8 @@ public class Cashier implements ICashier {
 
     @Override
     public void returnGamblerCard(IGamblerCard card) {
-        card.returnBetIDsAndClearCard();
+        card.returnBetIDsAndClearCard();// betID1 betID2
+        card.clearCardAmount();
     }
 
     @Override
