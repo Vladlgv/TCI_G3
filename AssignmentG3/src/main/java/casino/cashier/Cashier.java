@@ -8,18 +8,24 @@ import gamblingauthoritiy.IBetLoggingAuthority;
 
 public class Cashier implements ICashier {
 
-    public Cashier(IBetLoggingAuthority loggingAuthority) {
+    private IBetLoggingAuthority loggingAuthority;
 
+    public Cashier(IBetLoggingAuthority loggingAuthority) {
+        this.loggingAuthority = loggingAuthority;
     }
 
     @Override
     public IGamblerCard distributeGamblerCard() {
         GamblerCard newGamblerCard = new GamblerCard(new CardID(),new MoneyAmount(0l));
+        //BetLoggingAuthority
+        loggingAuthority.logHandOutGamblingCard(newGamblerCard.getCardID());
         return newGamblerCard;
     }
 
     @Override
     public void returnGamblerCard(IGamblerCard card) {
+        //BetLoggingAuthority
+        loggingAuthority.logHandInGamblingCard(card.getCardID(),card.returnBetIDs());
         card.returnBetIDsAndClearCard();// betID1 betID2
         card.clearCardAmount();
     }

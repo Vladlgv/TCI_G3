@@ -78,6 +78,8 @@ public class CashierTest {
         assertEquals(0l,gamblerCard.getAmount());
     }
 
+    //todo invalid Amount to add and extract
+
     @Test
     public void  test_CardDistributedToGambler_CreateCardSuccessfully(){
         //Arrange

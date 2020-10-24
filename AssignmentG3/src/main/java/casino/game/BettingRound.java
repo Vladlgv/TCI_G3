@@ -12,6 +12,9 @@ import java.util.Set;
  *
  */
 public class BettingRound implements IBettingRound {
+
+    private BettingRoundID bettingRoundID;
+
     @Override
     public BettingRoundID getBettingRoundID() {
         return null;
