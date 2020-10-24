@@ -1,6 +1,7 @@
 package casino.cashier;
 
 import casino.idfactory.BetID;
+import casino.idfactory.CardID;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.fest.assertions.Assertions;
@@ -31,11 +32,12 @@ public class GamblerCardTest {
         };
     }
 
+    IGamblerCard myCard = new GamblerCard();
+
     @Test
     @Parameters(method = "getRightValues")
     public void test_GetNumberOfBetIds_ReturnsRightNumber(int numberOfBetIds) {
         //arrange
-        IGamblerCard myCard = new GamblerCard();
         //act
         for(int i = 0 ; i< numberOfBetIds ; i++)
         myCard.generateNewBetID();
@@ -47,7 +49,6 @@ public class GamblerCardTest {
     @Test
     public void test_CreateUniqueBetID_SuccessfulyCreatesBetID() {
         //arrange
-        IGamblerCard myCard = new GamblerCard();
         BetID mockBetId = mock(BetID.class);
         int numberOfBetIds3 = 3;
         when(mockBetId.getUniqueID()).thenReturn(UUID.randomUUID());
@@ -55,12 +56,23 @@ public class GamblerCardTest {
         for(int i = 0 ; i< numberOfBetIds3 ; i++)
         myCard.generateNewBetID();
         Set<BetID> result = myCard.returnBetIDs();
-        
+
         //assert
         for (BetID b:result) {
             Assertions.assertThat(mockBetId).isNotSameAs(b);
             mockBetId = b;
         }
+
+    }
+
+
+    @Test
+    public void test_GetCardId_isNotNull() {
+        //arrange
+        //act
+        CardID result = myCard.getCardID();
+        //assert
+        Assertions.assertThat(result).isNotNull();
 
     }
 }
