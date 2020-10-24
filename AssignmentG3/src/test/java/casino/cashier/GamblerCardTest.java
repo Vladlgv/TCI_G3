@@ -107,7 +107,7 @@ public class GamblerCardTest {
         //assert
 
         Assertions.assertThat(result_clear).isEqualTo(betIds);
-        //Assertions.assertThat(betIDsCleared).isEmpty();
+        Assertions.assertThat(betIDsCleared).isEmpty();
 
     }
 }
