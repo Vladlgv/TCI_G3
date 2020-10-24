@@ -39,4 +39,5 @@ public interface IGamblerCard {
     MoneyAmount getCardAmount();
     void setCardAmount(long amount);
     void clearCardAmount();
+    void removeBetID(BetID betID);
 }

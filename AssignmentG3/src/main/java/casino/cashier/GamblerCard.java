@@ -65,4 +65,9 @@ public class GamblerCard implements IGamblerCard {
     public void clearCardAmount() {
         this.cardAmount=new MoneyAmount(0);
     }
+
+    @Override
+    public void removeBetID(BetID betID) {
+        this.betIDS.remove(betID);
+    }
 }
