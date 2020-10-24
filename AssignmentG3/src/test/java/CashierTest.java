@@ -51,7 +51,10 @@ public class CashierTest {
     @Test
     public void test_AddMoneyToCard_Works() throws InvalidAmountException {
         //Arrange
+        CardID cardID=mock(CardID.class);
+        MoneyAmount money=mock(MoneyAmount.class);
 
+        GamblerCard gamblerCard = new GamblerCard(cardID,money);
         //Act
         cashier.addAmount(gamblerCard,money);
 
