@@ -25,11 +25,8 @@ public class GamingMachineTest {
 
     @Test(expected = BetNotExceptedException.class)
     public void placeBetWithInvalidAmount() throws NoPlayerCardException, BetNotExceptedException {
-        GamingMachine gamingMachine=mock(GamingMachine.class);
-        GamblerCard gamblerCard=mock(GamblerCard.class);
-        gamingMachine.connectCard(gamblerCard);
-        when(gamingMachine.placeBet(-99)).thenThrow(new BetNotExceptedException());
-        gamingMachine.placeBet(-99);
+        gameMachine.connectCard(gamblerCard);
+        gameMachine.placeBet(-99);
     }
 
     @Test
@@ -70,8 +67,6 @@ public class GamingMachineTest {
 
     @Test(expected = NoPlayerCardException.class)
     public void NoConnectedCardToPlaceBet() throws NoPlayerCardException, BetNotExceptedException {
-        GamingMachine gamingMachine=mock(GamingMachine.class);
-        when(gamingMachine.placeBet(10)).thenThrow(new NoPlayerCardException());
-        gamingMachine.placeBet(10);
+        gameMachine.placeBet(10);
     }
 }
