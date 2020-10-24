@@ -1,9 +1,15 @@
 package casino.game;
 
+import casino.idfactory.BettingRoundID;
+import casino.idfactory.IDFactory;
 import org.fest.assertions.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.UUID;
+
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 public class DefaultGameTest {
 
@@ -25,10 +31,17 @@ public class DefaultGameTest {
 
     ///
     //Test that tries to start a new betting round after a betting round was previously started.
+    //BettingRound Needs to be implemented in order to test this class
     ///
+    @Ignore
     @Test
     public void test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated() {
         //arrange
+        String testUUID = "c81d4e2e-bcf2-11e6-869b-7df92533d2db";
+        UUID expectedUUID = UUID.fromString(testUUID);
+        BettingRoundID auxBettingRoundID = mock(BettingRoundID.class);
+        when(auxBettingRoundID.getUniqueID()).thenReturn(UUID.fromString(testUUID));
+        when(auxBettingRoundID.getTimeStamp()).thenReturn(null);
         //act
         myGame.startBettingRound();
         var currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
@@ -38,7 +51,7 @@ public class DefaultGameTest {
     }
 
     @Test
-    public void acceptBet() {
+    public void test_AcceptValidBet_BetIsSuccessful() {
     }
 
     @Test
