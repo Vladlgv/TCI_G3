@@ -32,6 +32,7 @@ public class GamblerCard implements IGamblerCard {
         Set<BetID> tempSetBetIDs=new HashSet<BetID>();
         tempSetBetIDs.addAll(this.betIDS);
         this.betIDS.clear();
+        cardAmount = new MoneyAmount(0l);
         return tempSetBetIDs;
     }
 
