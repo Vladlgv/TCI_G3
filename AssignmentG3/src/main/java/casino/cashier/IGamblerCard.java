@@ -1,5 +1,6 @@
 package casino.cashier;
 
+import casino.bet.MoneyAmount;
 import casino.idfactory.BetID;
 import casino.idfactory.CardID;
 
@@ -33,4 +34,5 @@ public interface IGamblerCard {
     int getNumberOfBetIDs();
 
     CardID getCardID();
+    MoneyAmount getCardAmount();
 }
