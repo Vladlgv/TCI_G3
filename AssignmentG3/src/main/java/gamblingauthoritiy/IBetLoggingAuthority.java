@@ -72,4 +72,6 @@ public interface IBetLoggingAuthority {
      * </p>
      */
     void logEndBettingRound(IBettingRound endedBettingRound, BetResult result);
+
+    void logStartBettingRound();
 }
