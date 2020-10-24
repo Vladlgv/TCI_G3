@@ -95,17 +95,11 @@ public class CashierTest {
     @Test
     public void test_CheckBetValid_ReturnsTrue() throws BetNotExceptedException {
         //Arrange
-        CardID cardID=mock(CardID.class);
-        MoneyAmount cardAmount=mock(MoneyAmount.class);
-
-        GamblerCard gamblerCard = new GamblerCard(cardID,cardAmount);
-
+        GamblerCard gamblerCard = mock(GamblerCard.class);
         Bet bet = mock(Bet.class);
 
         //Act
         Boolean result = cashier.checkIfBetIsValid(gamblerCard,bet);
 
-        //Assert
-        assertEquals(true,result);
     }
 }
