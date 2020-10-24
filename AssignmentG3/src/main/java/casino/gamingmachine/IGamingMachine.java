@@ -2,6 +2,7 @@ package casino.gamingmachine;
 
 import casino.bet.BetResult;
 import casino.cashier.IGamblerCard;
+import casino.idfactory.GamingMachineID;
 
 /**
  * Described a gaming machine. a machine has a gamingmachineID,
