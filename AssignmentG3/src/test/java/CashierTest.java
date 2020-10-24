@@ -59,5 +59,6 @@ public class CashierTest {
         cashier.addAmount(gamblerCard,money);
 
         //Assert
+        assertEquals(10l,gamblerCard.getAmount());
     }
 }
