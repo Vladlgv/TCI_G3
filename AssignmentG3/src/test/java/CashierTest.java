@@ -54,11 +54,12 @@ public class CashierTest {
         CardID cardID=mock(CardID.class);
         MoneyAmount money=mock(MoneyAmount.class);
 
+        when(money.getAmountInCents()).thenReturn(100l);
         GamblerCard gamblerCard = new GamblerCard(cardID,money);
         //Act
         cashier.addAmount(gamblerCard,money);
 
         //Assert
-        assertEquals(10l,gamblerCard.getAmount());
+        assertEquals(money.getAmountInCents()*2,gamblerCard.getAmount());
     }
 }
