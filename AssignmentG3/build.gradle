@@ -17,4 +17,5 @@ dependencies {
     testCompile 'pl.pragmatists:JUnitParams:1.1.1'
     testCompile 'org.hamcrest:hamcrest-library:2.2'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+    compile group: 'org.mockito', name: 'mockito-core', version: '2.22.0'
 }

@@ -12,11 +12,23 @@ public abstract class GeneralID {
     private final UUID uniqueID;
     private final Instant timeStamp;
 
+
+
     public GeneralID() {
         this.uniqueID = UUID.randomUUID();
         this.timeStamp = Instant.now();
     }
 
     // TODO: implement necessary code. Add WHY you need it.
+
+    //used to determine the UUID of the General object
+    public UUID getUniqueID() {
+        return uniqueID;
+    }
+
+    //used to determine the TimeStamp of the object
+    public Instant getTimeStamp() {
+        return timeStamp;
+    }
 
 }
