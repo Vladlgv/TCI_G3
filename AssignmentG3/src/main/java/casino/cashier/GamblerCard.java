@@ -7,8 +7,14 @@ import casino.idfactory.IDFactory;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 public class GamblerCard implements IGamblerCard {
+
+    CardID cardId;
+    public GamblerCard() {
+        this.cardId =  (CardID) IDFactory.generateID("CardID");
+    }
 
     private Set<BetID> betIDS=new HashSet<BetID>();
     @Override
@@ -35,6 +41,6 @@ public class GamblerCard implements IGamblerCard {
 
     @Override
     public CardID getCardID() {
-        return null;
+        return cardId;
     }
 }
