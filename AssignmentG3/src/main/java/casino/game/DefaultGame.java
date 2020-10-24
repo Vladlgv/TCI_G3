@@ -7,8 +7,12 @@ import gamblingauthoritiy.BettingAuthority;
 
 public class DefaultGame extends AbstractGame {
 
-    IBettingRound currentBettingRound;
-    static BettingAuthority bettingAuthority;
+    private IBettingRound currentBettingRound;
+    private static BettingAuthority bettingAuthority;
+
+    public IBettingRound getCurrentBettingRound() {
+        return currentBettingRound;
+    }
 
     public DefaultGame() {
         this.bettingAuthority = new BettingAuthority();
@@ -18,11 +22,11 @@ public class DefaultGame extends AbstractGame {
     public void startBettingRound() {
     if(currentBettingRound == null) {
         currentBettingRound = new BettingRound();
-        bettingAuthority.getLoggingAuthority().logStartBettingRound();
+        bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());;
     }
     else
     {
-
+        bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());
     }
 
     }

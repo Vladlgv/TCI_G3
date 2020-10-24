@@ -53,7 +53,4 @@ public class BetLoggingAuthority implements IBetLoggingAuthority {
         // NOT RELEVANT TO KNOW THE IMPLEMENTATION
 
     }
-
-
-
 }

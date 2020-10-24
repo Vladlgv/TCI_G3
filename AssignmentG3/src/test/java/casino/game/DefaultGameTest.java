@@ -17,8 +17,7 @@ public class DefaultGameTest {
         //act
         myGame.startBettingRound();
         //assert
-        Assertions.assertThat(myGame.currentBettingRound).isNotNull();
-
+        Assertions.assertThat(myGame.getCurrentBettingRound()).isNotNull();
     }
 
     @Test
