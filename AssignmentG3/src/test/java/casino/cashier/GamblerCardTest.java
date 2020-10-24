@@ -88,6 +88,12 @@ public class GamblerCardTest {
         CardID result = myCard.getCardID();
         //assert
         Assertions.assertThat(result).isNotNull();
+    }
 
+    @Test
+    public void test_returnAllBEtsClear_CorectLIstIsReturenedCardsAreDeleted() {
+        //arrange
+        //act
+        //assert
     }
 }
