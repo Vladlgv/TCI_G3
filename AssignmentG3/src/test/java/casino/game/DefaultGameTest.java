@@ -7,8 +7,11 @@ import static org.junit.Assert.*;
 
 public class DefaultGameTest {
 
+
+    DefaultGame myGame = new DefaultGame();
+
     ///
-    //Test that tries to start a new betting round after a betting round was previously started.
+    //Test that tries to start a new betting round after a betting round was not previously started.
     ///
     @Test
     public void test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated() {
@@ -18,6 +21,20 @@ public class DefaultGameTest {
         myGame.startBettingRound();
         //assert
         Assertions.assertThat(myGame.getCurrentBettingRound()).isNotNull();
+    }
+
+    ///
+    //Test that tries to start a new betting round after a betting round was previously started.
+    ///
+    @Test
+    public void test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated() {
+        //arrange
+        //act
+        myGame.startBettingRound();
+        var currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
+        myGame.startBettingRound();
+        //assert
+        Assertions.assertThat(myGame.getCurrentBettingRound().getBettingRoundID()).isNotSameAs(currentBettingRound);
     }
 
     @Test
