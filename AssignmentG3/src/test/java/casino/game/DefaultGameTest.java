@@ -1,6 +1,12 @@
 package casino.game;
 
+import casino.bet.Bet;
+import casino.bet.MoneyAmount;
+import casino.gamingmachine.GamingMachine;
+import casino.gamingmachine.IGamingMachine;
+import casino.idfactory.BetID;
 import casino.idfactory.BettingRoundID;
+import casino.idfactory.GamingMachineID;
 import casino.idfactory.IDFactory;
 import org.fest.assertions.Assertions;
 import org.junit.Ignore;
@@ -49,9 +55,43 @@ public class DefaultGameTest {
         //assert
         Assertions.assertThat(myGame.getCurrentBettingRound().getBettingRoundID()).isNotSameAs(currentBettingRound);
     }
-
+    /**
+     * Accept a bet on the current betting round.
+     * determine if the betting round is finished, if so: determine the winner,
+     * notify the connected gaming machines and start a new betting round.
+     *
+     * Note: also use the appropiate required methods from the gambling authority API
+     *
+     * @param bet the bet to be made on the betting round
+     * @param gamingMachine gamingmachine which places bet on this game.
+     * @return true when bet is accepted by the game, otherwise false.
+     * @throws NoCurrentRoundException when no BettingRound is currently active.
+     */
+    ///
+    //Test to see if a bet that is supposed to be valid is indeed valid;
+    ///
     @Test
-    public void test_AcceptValidBet_BetIsSuccessful() {
+    public void test_AcceptValidBet_BetIsSuccessful() throws NoCurrentRoundException {
+        //arrange
+        IGamingMachine mockGamingMachine= mock(GamingMachine.class);
+        Bet mockBet = mock(Bet.class);
+        MoneyAmount m = mock(MoneyAmount.class);
+        long amountToReturn = 1000;
+        DefaultGame spyGame = spy(DefaultGame.class);
+
+        when(mockBet.getBetID()).thenReturn((BetID) IDFactory.generateID("BetID"));
+        when(m.getAmountInCents()).thenReturn(amountToReturn);
+        when(mockBet.getMoneyAmount()).thenReturn(m);
+
+        when(mockGamingMachine.getGamingMachineID()).thenReturn((GamingMachineID)IDFactory.generateID("GamingMachineID"));
+
+
+        //act
+        boolean gameAccepted = myGame.acceptBet(mockBet,mockGamingMachine);
+        //assert
+        verify(myGame).acceptBet(mockBet,mockGamingMachine);
+        Assertions.assertThat(gameAccepted).isTrue();
+
     }
 
     @Test
