@@ -1,6 +1,12 @@
 package casino.game;
 
+import casino.cashier.BetNotExceptedException;
+import casino.cashier.Cashier;
+import casino.cashier.GamblerCard;
+import casino.gamingmachine.GamingMachine;
 import casino.idfactory.BettingRoundID;
+import casino.idfactory.GamingMachineID;
+import gamblingauthoritiy.BetLoggingAuthority;
 import gamblingauthoritiy.BetToken;
 import gamblingauthoritiy.BetTokenAuthority;
 import gamblingauthoritiy.IBetLoggingAuthority;
@@ -17,12 +23,22 @@ public class BettingRound implements IBettingRound {
     private BettingRoundID bettingRoundID;
     private BetToken betToken;
     private BetTokenAuthority betTokenAuthority;
+    //private IBetLoggingAuthority loggingAuthority;
+    private GamingMachine gamingMachine;
+    private IGame iGame;
+    private static int MaxAmountOfBets = 10;
 
-    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority){
+
+    //Define Set to store all Bets in this Betting round
+    private Set<Bet> bets = new HashSet<Bet>();
+
+    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority, IGame iGame){
         this.bettingRoundID = bettingRoundID;
         this.betTokenAuthority = betTokenAuthority;
         betToken = betTokenAuthority.getBetToken(bettingRoundID);
+        this.iGame =  iGame;
     }
+
 
     @Override
     public BettingRoundID getBettingRoundID() {
@@ -31,12 +47,37 @@ public class BettingRound implements IBettingRound {
 
     @Override
     public boolean placeBet(Bet bet) throws IllegalArgumentException {
-        return false;
+        //Check Bet Validattion
+        if(bet==null){
+            throw new IllegalArgumentException();
+        }
+        if(bets.size()>=MaxAmountOfBets){
+            return false;
+        }
+
+        if(iGame.isBettingRoundFinished()==true){
+            return false;
+        }
+        else {
+            this.bets.add(bet);
+            return true;
+        }
+
+
+       /* gamingMachine.placeBet(bet.getMoneyAmount().getAmountInCents());
+        try {
+            GamblerCard gamblerCard = gamingMachine.getGamblerCard();
+            cashier.checkIfBetIsValid(gamblerCard,bet);
+            bets.add(bet);
+            loggingAuthority.logAddAcceptedBet(bet,bettingRoundID,gamingMachine.getGamingMachineID());
+        } catch (BetNotExceptedException e) {
+            return false;
+        }*/
     }
 
     @Override
     public Set<Bet> getAllBetsMade() {
-        return null;
+        return this.bets;
     }
 
     @Override
