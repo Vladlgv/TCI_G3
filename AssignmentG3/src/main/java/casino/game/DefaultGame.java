@@ -59,7 +59,6 @@ public class DefaultGame extends AbstractGame {
         BetResult myBetResult = gameRule.determineWinner((int)Math.random(),currentBettingRound.getAllBetsMade());
         bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,myBetResult);
         currentBettingRound = null;
-
     }
 
 
@@ -97,10 +96,12 @@ public class DefaultGame extends AbstractGame {
 
     @Override
     public void determineWinner() throws NoBetsMadeException {
+
         BetToken betToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
         Integer winningNumber =  bettingAuthority.getTokenAuthority().getRandomInteger(betToken);
-        IGameRule gameRule = new GameRule();
-         gameRule.determineWinner(winningNumber,currentBettingRound.getAllBetsMade());
+       var winner =  gameRule.determineWinner(winningNumber,currentBettingRound.getAllBetsMade());
+        currentBettingRound = null;
+        bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,winner);
     }
 
     @Override
