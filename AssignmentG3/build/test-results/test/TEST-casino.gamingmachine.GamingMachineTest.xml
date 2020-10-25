@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.gamingmachine.GamingMachineTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:51:43" hostname="DESKTOP-QCAEEEG" time="0.011">
+<testsuite name="casino.gamingmachine.GamingMachineTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:05:01" hostname="DESKTOP-AQMEFGJ" time="0.004">
   <properties/>
   <testcase name="CheckIfCardIsConnectedWhenOpenBet" classname="casino.gamingmachine.GamingMachineTest" time="0.0"/>
   <testcase name="getGamingMachineID" classname="casino.gamingmachine.GamingMachineTest" time="0.0"/>
   <testcase name="NoConnectedCardToPlaceBet" classname="casino.gamingmachine.GamingMachineTest" time="0.0"/>
-  <testcase name="CheckIfCardIsConnected" classname="casino.gamingmachine.GamingMachineTest" time="0.001"/>
-  <testcase name="clearAllBetWhenReceiveWinner" classname="casino.gamingmachine.GamingMachineTest" time="0.008"/>
+  <testcase name="CheckIfCardIsConnected" classname="casino.gamingmachine.GamingMachineTest" time="0.0"/>
+  <testcase name="clearAllBetWhenReceiveWinner" classname="casino.gamingmachine.GamingMachineTest" time="0.004"/>
   <testcase name="CheckIfCardIsDisconnected" classname="casino.gamingmachine.GamingMachineTest" time="0.0"/>
   <testcase name="placeBetWithInvalidAmount" classname="casino.gamingmachine.GamingMachineTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
