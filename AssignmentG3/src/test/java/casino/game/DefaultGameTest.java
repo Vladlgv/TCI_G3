@@ -157,7 +157,7 @@ public class DefaultGameTest {
     //throws an NoCurrentRoundException
     ///
     @Test//(expected = NoCurrentRoundException.class)
-    public void test_ThrowException_ThrowNoCurrentRoundException() throws NoCurrentRoundException {
+    public void test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException() throws NoCurrentRoundException {
         //arrange
         DefaultGame differentDefaultGame = new DefaultGame(null);
         IGamingMachine mockGamingMachine= mock(GamingMachine.class);
@@ -183,7 +183,11 @@ public class DefaultGameTest {
     }
 
     @Test
-    public void determineWinner() {
+    public void test_DetermineWinnerWithBets_CorrectWinnerIsChosen()
+    {
+        //arrange
+        //act
+        //assert
     }
 
     @Test
