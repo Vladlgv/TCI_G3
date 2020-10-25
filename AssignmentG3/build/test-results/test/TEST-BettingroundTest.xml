@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BettingroundTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-10-25T17:55:08" hostname="DESKTOP-AQMEFGJ" time="0.009">
+  <properties/>
+  <testcase name="test_addNullBet" classname="BettingroundTest" time="0.0"/>
+  <testcase name="[0] [casino.bet.Bet@16491c24, casino.bet.Bet@3c5e533b] (test_ReturnAllBetsInCurrentBettinground_BetsReturned)" classname="BettingroundTest" time="0.001"/>
+  <testcase name="test_addNewBet" classname="BettingroundTest" time="0.0"/>
+  <testcase name="[0] [casino.bet.Bet@44defd39, casino.bet.Bet@45194bea] (test_ReturnAmountOfBetsInCurrentBettinground_AmountReturned)" classname="BettingroundTest" time="0.0"/>
+  <testcase name="test_ReturnBetTokenForCurrentBettinground_BetTokenReturned" classname="BettingroundTest" time="0.001"/>
+  <testcase name="[0] [casino.bet.Bet@1b6fc751, casino.bet.Bet@55e6888c] (test_addBetWhenBettingroundWhenFinished)" classname="BettingroundTest" time="0.0"/>
+  <testcase name="test_generateBetID" classname="BettingroundTest" time="0.004"/>
+  <testcase name="test_AddBetToCurrentBettinground_ReturnsTrue" classname="BettingroundTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
