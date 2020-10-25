@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.game.DefaultGameTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-10-25T16:41:59" hostname="DESKTOP-CSQT5FI" time="0.0">
-  <properties/>
-  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected" classname="casino.game.DefaultGameTest" time="0.0">
-    <skipped/>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
