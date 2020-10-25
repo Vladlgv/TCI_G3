@@ -21,7 +21,7 @@ public interface IGame {
      * Note: also use the appropiate required methods from the gambling authority API
      *
      */
-    void startBettingRound();
+    void startBettingRound() throws NoBetsMadeException;
 
     /**
      * Accept a bet on the current betting round.
@@ -46,7 +46,7 @@ public interface IGame {
      *
      * Note: also use the appropiate required methods from the gambling authority API
      */
-    void determineWinner();
+    void determineWinner() throws NoBetsMadeException;
 
     /**
      * determine if the right number of bets are done (determined by gamerules) to be able to

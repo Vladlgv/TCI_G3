@@ -26,10 +26,21 @@
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
   </component>
+<<<<<<< HEAD
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+=======
+<<<<<<< HEAD
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11.0.5" project-jdk-type="JavaSDK" />
+>>>>>>> dev_win
+>>>>>>> 4cf7d51f1abe3c78cebd62c8531a66affeca69e5
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
   </component>
