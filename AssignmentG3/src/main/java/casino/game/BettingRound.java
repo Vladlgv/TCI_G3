@@ -23,7 +23,7 @@ public class BettingRound implements IBettingRound {
     private BettingRoundID bettingRoundID;
     private BetToken betToken;
     private BetTokenAuthority betTokenAuthority;
-    //private IBetLoggingAuthority loggingAuthority;
+    private IBetLoggingAuthority loggingAuthority;
     private GamingMachine gamingMachine;
     private IGame iGame;
     private static int MaxAmountOfBets = 10;
@@ -32,11 +32,12 @@ public class BettingRound implements IBettingRound {
     //Define Set to store all Bets in this Betting round
     private Set<Bet> bets = new HashSet<Bet>();
 
-    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority, IGame iGame){
+    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority, IGame iGame, IBetLoggingAuthority loggingAuthority){
         this.bettingRoundID = bettingRoundID;
         this.betTokenAuthority = betTokenAuthority;
         betToken = betTokenAuthority.getBetToken(bettingRoundID);
         this.iGame =  iGame;
+        this.loggingAuthority = loggingAuthority;
     }
 
 
@@ -60,6 +61,7 @@ public class BettingRound implements IBettingRound {
         }
         else {
             this.bets.add(bet);
+            loggingAuthority.logAddAcceptedBet(bet,bettingRoundID,gamingMachine.getGamingMachineID());
             return true;
         }
 
