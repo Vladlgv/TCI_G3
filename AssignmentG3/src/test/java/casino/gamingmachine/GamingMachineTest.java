@@ -25,12 +25,18 @@ public class GamingMachineTest {
     GamingMachine gameMachine=new GamingMachine(gamingMachineID,cashier,iGame);
     GamblerCard gamblerCard=(GamblerCard)cashier.distributeGamblerCard();
 
+    /**
+     * Test to see if the BetNotExceptedException is thrown when placeBet with an invalid amount;
+     */
     @Test(expected = BetNotExceptedException.class)
     public void placeBetWithInvalidAmount() throws NoPlayerCardException, BetNotExceptedException {
         gameMachine.connectCard(gamblerCard);
         gameMachine.placeBet(-99);
     }
 
+    /**
+     * Test to see if the set of the made bets is clear when the gameMachine receives the betResult;
+     */
     @Test
     public void clearAllBetWhenReceiveWinner() throws NoPlayerCardException, BetNotExceptedException, InvalidAmountException {
         MoneyAmount moneyAmount=mock(MoneyAmount.class);
@@ -49,17 +55,26 @@ public class GamingMachineTest {
         assertEquals(0,gameMachine.getNumberOfBets());
     }
 
+    /**
+     * Test to see if the gamingMachineID is returned correctly;
+     */
     @Test
     public void getGamingMachineID() {
         assertEquals(gamingMachineID,gameMachine.getGamingMachineID());
     }
 
+    /**
+     * Test to see if the gamblerCard is connected to the gamingMachine;
+     */
     @Test
     public void CheckIfCardIsConnected() {
         gameMachine.connectCard(gamblerCard);
         assertEquals(gamblerCard,gameMachine.getConnectedCard());
     }
 
+    /**
+     * Test to see if the gamblerCard is no longer connected to the gamingMachine;
+     */
     @Test
     public void CheckIfCardIsDisconnected() throws CurrentBetMadeException {
         gameMachine.connectCard(gamblerCard);
@@ -68,11 +83,17 @@ public class GamingMachineTest {
         assertEquals(null,gameMachine.getConnectedCard());
     }
 
+    /**
+     * Test to see if the NoPlayerCardException is thrown when trying to place a bet with the zero-connected-gamblerCard gamingMachine;
+     */
     @Test(expected = NoPlayerCardException.class)
     public void NoConnectedCardToPlaceBet() throws NoPlayerCardException, BetNotExceptedException {
         gameMachine.placeBet(10);
     }
 
+    /**
+     * Test to see if the CurrentBetMadeException is thrown when trying to disconnect gamblerCard from the gamingMachine while the bettingRound is not finished yet;
+     */
     @Test(expected = CurrentBetMadeException.class)
     public void CheckIfCardIsConnectedWhenOpenBet() throws CurrentBetMadeException {
         when(iGame.isBettingRoundFinished()).thenReturn(false);

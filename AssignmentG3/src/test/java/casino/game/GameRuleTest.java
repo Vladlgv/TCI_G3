@@ -15,6 +15,9 @@ public class GameRuleTest {
     int maxNumberOfBets=6;
     GameRule gameRule = new GameRule(maxNumberOfBets);
 
+    /**
+     * Test to see if the NoBetsMadeException is thrown when the set of made bets is null or empty;
+     */
     @Test(expected = NoBetsMadeException.class)
     public void betsSetIsNullOrEmpty() throws NoBetsMadeException {
         Set<Bet> bets=null;
@@ -25,6 +28,9 @@ public class GameRuleTest {
         gameRule.determineWinner(1,bets);
     }
 
+    /**
+     * Test to see if a null betResult is returned when the randomWinValue is not in the range of the set;
+     */
     @Test
     public void randomWinValueNotInRangeOfSet() throws NoBetsMadeException {
         Set<Bet> bets=new HashSet<Bet>();
@@ -39,6 +45,9 @@ public class GameRuleTest {
         assertEquals(null,gameRule.determineWinner(0,bets));
     }
 
+    /**
+     * Test to see if a betResult is returned when the randomWinValue is in the range of the set;
+     */
     @Test
     public void randomWinValueInRangeOfSet() throws NoBetsMadeException {
         Set<Bet> bets=new HashSet<Bet>();
@@ -57,6 +66,9 @@ public class GameRuleTest {
         assertNotEquals(null,gameRule.determineWinner(4,bets));
     }
 
+    /**
+     * Test to see if a correct number of the maxNumberOfBetsCanMade is returned;
+     */
     @Test
     public void returnMaxNumberOfBetsCanMade(){
         assertEquals(maxNumberOfBets,gameRule.getMaxBetsPerRound());

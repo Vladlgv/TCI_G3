@@ -15,6 +15,9 @@ import static org.mockito.Mockito.mock;
 
 public class BetTest {
 
+    /**
+     * Test to see if a new bet can be created;
+     */
     @Test
     public void CreateABet(){
         BetID betId= mock(BetID.class);
@@ -25,6 +28,9 @@ public class BetTest {
         assertEquals(moneyAmount,bet.getMoneyAmount());
     }
 
+    /**
+     * Test to see if the betID is always unique;
+     */
     @Test
     public void UniqueBetID(){
         Set<BetID> betIDS=new HashSet<BetID>();

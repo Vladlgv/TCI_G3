@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.cashier.CashierTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:13:46" hostname="DESKTOP-AQMEFGJ" time="0.045">
+<testsuite name="casino.cashier.CashierTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:21:47" hostname="DESKTOP-CSQT5FI" time="0.059">
   <properties/>
-  <testcase name="test_AddMoneyToCard_Works([casino.bet.MoneyAmount@628c9370, casino.bet.MoneyAmount@28ffd5e3, casino.bet.MoneyAmount@391bd156]) [0]" classname="casino.cashier.CashierTest" time="0.009"/>
-  <testcase name="test_CheckBetValid_ReturnsException" classname="casino.cashier.CashierTest" time="0.034"/>
-  <testcase name="test_AddInvalidMoneyToCard_ReturnsException([casino.bet.MoneyAmount@39464851, casino.bet.MoneyAmount@3f574b1a, casino.bet.MoneyAmount@69d1d1de]) [0]" classname="casino.cashier.CashierTest" time="0.001"/>
-  <testcase name="test_ExtractMoney_Works([casino.bet.MoneyAmount@e273cd3, casino.bet.MoneyAmount@528e986, casino.bet.MoneyAmount@a26da2]) [0]" classname="casino.cashier.CashierTest" time="0.0"/>
-  <testcase name="test_RemoveBetsInCard_Works" classname="casino.cashier.CashierTest" time="0.0"/>
+  <testcase name="test_AddMoneyToCard_Works([casino.bet.MoneyAmount@6cb30fcd, casino.bet.MoneyAmount@67b7e6da, casino.bet.MoneyAmount@196b4274]) [0]" classname="casino.cashier.CashierTest" time="0.013"/>
+  <testcase name="test_CheckBetValid_ReturnsException" classname="casino.cashier.CashierTest" time="0.044"/>
+  <testcase name="test_AddInvalidMoneyToCard_ReturnsException([casino.bet.MoneyAmount@4cf96093, casino.bet.MoneyAmount@38c0c3a6, casino.bet.MoneyAmount@60196352]) [0]" classname="casino.cashier.CashierTest" time="0.001"/>
+  <testcase name="test_ExtractMoney_Works([casino.bet.MoneyAmount@2322e5c7, casino.bet.MoneyAmount@2458f4c8, casino.bet.MoneyAmount@1a3bde16]) [0]" classname="casino.cashier.CashierTest" time="0.0"/>
+  <testcase name="test_RemoveBetsInCard_Works" classname="casino.cashier.CashierTest" time="0.001"/>
   <testcase name="test_CheckBetValid_ReturnsTrue" classname="casino.cashier.CashierTest" time="0.0"/>
-  <testcase name="test_RemoveAmountInCard_Works([casino.bet.MoneyAmount@679a1349, casino.bet.MoneyAmount@50ec7acd, casino.bet.MoneyAmount@124add8f]) [0]" classname="casino.cashier.CashierTest" time="0.0"/>
+  <testcase name="test_RemoveAmountInCard_Works([casino.bet.MoneyAmount@31133df0, casino.bet.MoneyAmount@5abfac8, casino.bet.MoneyAmount@66b6b001]) [0]" classname="casino.cashier.CashierTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
