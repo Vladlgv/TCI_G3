@@ -9,28 +9,16 @@ Use Intelij to run the project
 
 ### Prerequisites
 
-Make sure you have java installed 
+Make sure you have java installed and java SDK 
 
 ```
 
-Give examples
+To import java sdk in intelij go to Project Structure > SDKs > select SDK path
 
 ```
 
 ### Installing
 
-[TODO]
-```
-
-Give the example
-
-```
-
-And repeat
-
-```
-
-until finished
 
 ```
 
@@ -38,31 +26,28 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To run the tests inside intelij right click the java folder from the src/test forlder and select 'Run Tests in grouopAssignment....' you can also chose the option for coverage to determnine code coverage
 
-### Break down into end to end tests
 
-Explain what these tests test and why
+### Coding style tests
 
-```
-
-Give an example
+Test to see if betting Round ID is properly generated
 
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
+@Test
+    public void test_BettingRoundID_GeneratesNumber() {
+        //arrange
+        //act
+        bettingRoundID = (BettingRoundID) IDFactory.generateID("BettingRoundID");
+        //assert
+        Assertions.assertThat(bettingRoundID.getUniqueID()).isInstanceOf(UUID.class);
+        Assertions.assertThat(bettingRoundID.getTimeStamp()).isNotNull();
+        Assertions.assertThat(bettingRoundID).isNotNull();
+    }
 
 ```
 
-Give an example
-
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -72,17 +57,15 @@ Add additional notes about how to deploy this on a live system
 
 
 ## Contributing
-TODO
-Please read [CONTRIBUTING.md-> To make](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Read Requirements Document
 
 ## Versioning
-
+Every respective first did his work on his own branch and afterwards we merged all three branches in the main branch 
 
 ## Authors
-TODO
-* **Gabriel Vlad Luca** - *Put classes done here* 
-* **Tran Nguyen** - *Put classes done here*
-* **Yang Diqin** - *Put classes done here*
+* **Gabriel Vlad Luca** - *GamblerCard class, DefaultGame class, BettingRoundID class, GamingMachine class* 
+* **Tran Nguyen** - *GameRule class, GameMachine, CardID*
+* **Yang Diqin** - *BetID class, BettingRound class, Cashier class*
 
 See also the list of [contributors](https://github.com/Vladlgv/TCI_G3/contributors) who participated in this project.
 
