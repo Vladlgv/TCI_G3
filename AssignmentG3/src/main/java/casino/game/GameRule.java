@@ -3,6 +3,7 @@ package casino.game;
 import casino.bet.Bet;
 import casino.bet.BetResult;
 import casino.bet.MoneyAmount;
+import casino.idfactory.BetID;
 
 import java.lang.reflect.Array;
 import java.util.Set;
@@ -32,7 +33,13 @@ public class GameRule implements IGameRule {
 //        {
 //           amountToWin += b.getMoneyAmount().getAmountInCents();
 //        }
-        BetResult theBetReuslt = new BetResult((Bet)bets.toArray()[0],new MoneyAmount(1000));
+        BetResult theBetReuslt;
+        if (bets.size() !=0)
+        theBetReuslt = new BetResult((Bet)bets.toArray()[0],new MoneyAmount(1000));
+        else
+        {
+            return new BetResult(new Bet(new BetID(),new MoneyAmount(100)),new MoneyAmount(100));
+        }
         return theBetReuslt;
     }
 

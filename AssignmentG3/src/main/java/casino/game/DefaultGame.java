@@ -97,11 +97,29 @@ public class DefaultGame extends AbstractGame {
     @Override
     public void determineWinner() throws NoBetsMadeException {
 
-        BetToken betToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
-        Integer winningNumber =  bettingAuthority.getTokenAuthority().getRandomInteger(betToken);
-       var winner =  gameRule.determineWinner(winningNumber,currentBettingRound.getAllBetsMade());
-        currentBettingRound = null;
-        bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,winner);
+        if(currentBettingRound.getAllBetsMade().size() == 0)
+        {
+            BetToken betToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
+            currentBettingRound = null;
+            bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,null);
+        }
+        else
+        {
+            BetToken betToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
+            Integer winningNumber =  bettingAuthority.getTokenAuthority().getRandomInteger(betToken);
+
+            var winner =  gameRule.determineWinner(winningNumber,currentBettingRound.getAllBetsMade());
+
+            for(GamingMachine gameMachine : getConnectedGamingMachines())
+            {
+                gameMachine.acceptWinner(winner);
+            }
+
+            currentBettingRound = null;
+            bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,winner);
+
+        }
+
     }
 
     @Override

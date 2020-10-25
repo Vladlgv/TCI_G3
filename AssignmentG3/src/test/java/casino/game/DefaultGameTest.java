@@ -8,6 +8,7 @@ import casino.idfactory.BetID;
 import casino.idfactory.BettingRoundID;
 import casino.idfactory.GamingMachineID;
 import casino.idfactory.IDFactory;
+import gamblingauthoritiy.BettingAuthority;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.fest.assertions.Assertions;
@@ -181,16 +182,26 @@ public class DefaultGameTest {
         }
 
     }
-
+    @Parameters(method = "getDummyBets")
     @Test
-    public void test_DetermineWinnerWithBets_CorrectWinnerIsChosen()
-    {
+    public void test_DetermineWinnerWithBets_CurrentBettingRoundIsEnded(Bet b1, Bet b2, Bet b3) throws NoBetsMadeException, NoCurrentRoundException {
+        //arrange
+        //act
+        bettingRound.placeBet(b1);
+        bettingRound.placeBet(b2);
+        bettingRound.placeBet(b3);
+
+        myGame.determineWinner();
+        //assert
+        Assertions.assertThat(myGame.getCurrentBettingRound()).isNull();
+    }
+    //@Parameters(method = "reachMaxBet")
+    @Test
+    public void test_DetectCorrectNumberOfTestsAreReached_SuccesfullyDetected() {
         //arrange
         //act
         //assert
-    }
 
-    @Test
-    public void isBettingRoundFinished() {
+
     }
 }

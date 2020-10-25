@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T11:16:17" hostname="DESKTOP-QCAEEEG" time="0.125">
+<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T13:44:31" hostname="DESKTOP-QCAEEEG" time="0.067">
   <properties/>
-  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 1765285657, Mock for Bet, hashCode: 661897579, Mock for Bet, hashCode: 945571981) [0]" classname="casino.game.DefaultGameTest" time="0.048"/>
-  <testcase name="isBettingRoundFinished" classname="casino.game.DefaultGameTest" time="0.0"/>
-  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.069"/>
-  <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.003"/>
-  <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.003"/>
+  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 387348807, Mock for Bet, hashCode: 933127198, Mock for Bet, hashCode: 1881890562) [0]" classname="casino.game.DefaultGameTest" time="0.028"/>
+  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsEnded(Mock for Bet, hashCode: 499919184, Mock for Bet, hashCode: 968140783, Mock for Bet, hashCode: 2110687827) [0]" classname="casino.game.DefaultGameTest" time="0.002"/>
+  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.032"/>
+  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccesfullyDetected" classname="casino.game.DefaultGameTest" time="0.0"/>
+  <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.001"/>
+  <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.002"/>
   <testcase name="test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated" classname="casino.game.DefaultGameTest" time="0.0"/>
-  <testcase name="test_DetermineWinnerWithBets_CorrectWinnerIsChosen" classname="casino.game.DefaultGameTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
