@@ -8,17 +8,55 @@ import casino.idfactory.BetID;
 import casino.idfactory.BettingRoundID;
 import casino.idfactory.GamingMachineID;
 import casino.idfactory.IDFactory;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.fest.assertions.Assertions;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-
+@RunWith(JUnitParamsRunner.class)
 public class DefaultGameTest {
 
+
+
+    private static final Object[] getDummyBets() {
+        BetID b1ID = mock(BetID.class);
+        when(b1ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b2ID = mock(BetID.class);
+        when(b2ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b3ID = mock(BetID.class);
+        when(b3ID.getUniqueID()).thenReturn(UUID.randomUUID());
+
+        MoneyAmount mockAmount = mock(MoneyAmount.class);
+        long amountToReturn = 1000;
+        when(mockAmount.getAmountInCents()).thenReturn(amountToReturn);
+
+        Bet b1 = mock(Bet.class);
+        when(b1.getMoneyAmount()).thenReturn(mockAmount);
+        when(b1.getBetID()).thenReturn(b1ID);
+
+        Bet b2 = mock(Bet.class);
+        when(b2.getMoneyAmount()).thenReturn(mockAmount);
+        when(b2.getBetID()).thenReturn(b2ID);
+
+        Bet b3 = mock(Bet.class);
+        when(b3.getMoneyAmount()).thenReturn(mockAmount);
+        when(b3.getBetID()).thenReturn(b3ID);
+
+
+
+        return new Object[]{
+                new Object[]{b1,b2,b3},
+
+        };
+    }
 
     BettingRound bettingRound = mock(BettingRound.class);
 
@@ -30,19 +68,20 @@ public class DefaultGameTest {
     @Test
     public void test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated() throws NoBetsMadeException {
         //arrange
+        DefaultGame myGameNull = new DefaultGame(null);
         //act
-        myGame.startBettingRound();
+        myGameNull.startBettingRound();
         //assert
-        Assertions.assertThat(myGame.getCurrentBettingRound()).isNotNull();
+        Assertions.assertThat(myGameNull.getCurrentBettingRound()).isNotNull();
     }
 
     ///
     //Test that tries to start a new betting round after a betting round was previously started.
     //BettingRound Needs to be implemented in order to test this class
     ///
-
+    @Parameters(method = "getDummyBets")
     @Test
-    public void test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated() throws NoBetsMadeException {
+    public void test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Bet b1, Bet b2, Bet b3) throws NoBetsMadeException {
         //arrange
         String testUUID = "c81d4e2e-bcf2-11e6-869b-7df92533d2db";
         UUID expectedUUID = UUID.fromString(testUUID);
@@ -50,9 +89,10 @@ public class DefaultGameTest {
         when(auxBettingRoundID.getUniqueID()).thenReturn(UUID.fromString(testUUID));
         when(auxBettingRoundID.getTimeStamp()).thenReturn(null);
         when(bettingRound.getBettingRoundID()).thenReturn(auxBettingRoundID);
+        when(bettingRound.getAllBetsMade()).thenReturn(new HashSet<>(){{add(b1);add(b2);add(b3);}});
         //act
-        myGame.startBettingRound();
         var currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
+        myGame.startBettingRound();
         myGame.startBettingRound();
         //assert
         Assertions.assertThat(myGame.getCurrentBettingRound().getBettingRoundID()).isNotSameAs(currentBettingRound);

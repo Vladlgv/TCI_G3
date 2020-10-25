@@ -10,6 +10,7 @@ import gamblingauthoritiy.BetToken;
 import gamblingauthoritiy.BettingAuthority;
 
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 public class DefaultGame extends AbstractGame {
@@ -51,20 +52,16 @@ public class DefaultGame extends AbstractGame {
         currentBettingRound = new BettingRound();
         bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());;
     }
-    else if(this.isBettingRoundFinished())
+    else
     {
       // BetToken myBetToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
         BetToken myBetToken = new BetToken(currentBettingRound.getBettingRoundID());
-        BetResult myBetResult = gameRule.determineWinner(bettingAuthority.getTokenAuthority().getRandomInteger(myBetToken),currentBettingRound.getAllBetsMade());
+        BetResult myBetResult = gameRule.determineWinner((int)Math.random(),currentBettingRound.getAllBetsMade());
         bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,myBetResult);
-        currentBettingRound = new BettingRound();
-        bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());
+        currentBettingRound = null;
 
     }
-    else
-    {
 
-    }
 
     }
     /**
@@ -108,7 +105,8 @@ public class DefaultGame extends AbstractGame {
 
     @Override
     public boolean isBettingRoundFinished() throws NoBetsMadeException {
-        if(gameRule.getMaxBetsPerRound() == currentBettingRound.numberOFBetsMade())
+      //  if(gameRule.getMaxBetsPerRound() == currentBettingRound.numberOFBetsMade())
+        if(10 == currentBettingRound.numberOFBetsMade())
         {
             return false;
         }
