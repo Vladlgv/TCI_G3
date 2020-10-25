@@ -14,6 +14,10 @@ public class GameRule implements IGameRule {
         this.maxBetsPerRound=maxBetsPerRound;
     }
 
+    public GameRule(){
+        this.maxBetsPerRound=0;
+    }
+
     @Override
     public BetResult determineWinner(Integer randomWinValue, Set<Bet> bets) throws NoBetsMadeException {
         if(bets==null||bets.size()==0){
