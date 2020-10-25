@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -195,12 +196,102 @@ public class DefaultGameTest {
         //assert
         Assertions.assertThat(myGame.getCurrentBettingRound()).isNull();
     }
-    //@Parameters(method = "reachMaxBet")
+
+    private static final Object[] reachMaxBet() {
+        BetID b1ID = mock(BetID.class);
+        when(b1ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b2ID = mock(BetID.class);
+        when(b2ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b3ID = mock(BetID.class);
+        when(b3ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b4ID = mock(BetID.class);
+        when(b4ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b5ID = mock(BetID.class);
+        when(b5ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b6ID = mock(BetID.class);
+        when(b6ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b7ID = mock(BetID.class);
+        when(b7ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b8ID = mock(BetID.class);
+        when(b8ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b9ID = mock(BetID.class);
+        when(b9ID.getUniqueID()).thenReturn(UUID.randomUUID());
+        BetID b10ID = mock(BetID.class);
+        when(b10ID.getUniqueID()).thenReturn(UUID.randomUUID());
+
+        MoneyAmount mockAmount = mock(MoneyAmount.class);
+        long amountToReturn = 1000;
+        when(mockAmount.getAmountInCents()).thenReturn(amountToReturn);
+
+        Bet b1 = mock(Bet.class);
+        when(b1.getMoneyAmount()).thenReturn(mockAmount);
+        when(b1.getBetID()).thenReturn(b1ID);
+
+        Bet b2 = mock(Bet.class);
+        when(b2.getMoneyAmount()).thenReturn(mockAmount);
+        when(b2.getBetID()).thenReturn(b2ID);
+
+        Bet b3 = mock(Bet.class);
+        when(b3.getMoneyAmount()).thenReturn(mockAmount);
+        when(b3.getBetID()).thenReturn(b3ID);
+
+        Bet b4 = mock(Bet.class);
+        when(b4.getMoneyAmount()).thenReturn(mockAmount);
+        when(b4.getBetID()).thenReturn(b1ID);
+
+        Bet b5 = mock(Bet.class);
+        when(b5.getMoneyAmount()).thenReturn(mockAmount);
+        when(b5.getBetID()).thenReturn(b2ID);
+
+        Bet b6 = mock(Bet.class);
+        when(b6.getMoneyAmount()).thenReturn(mockAmount);
+        when(b6.getBetID()).thenReturn(b3ID);
+
+        Bet b7 = mock(Bet.class);
+        when(b7.getMoneyAmount()).thenReturn(mockAmount);
+        when(b7.getBetID()).thenReturn(b1ID);
+
+        Bet b8 = mock(Bet.class);
+        when(b8.getMoneyAmount()).thenReturn(mockAmount);
+        when(b8.getBetID()).thenReturn(b2ID);
+
+        Bet b9 = mock(Bet.class);
+        when(b9.getMoneyAmount()).thenReturn(mockAmount);
+        when(b9.getBetID()).thenReturn(b3ID);
+
+        Bet b10 = mock(Bet.class);
+        when(b10.getMoneyAmount()).thenReturn(mockAmount);
+        when(b10.getBetID()).thenReturn(b3ID);
+
+
+        Set<Bet> myBets = new LinkedHashSet<>();
+        myBets.add(b1);
+        myBets.add(b2);
+        myBets.add(b3);
+        myBets.add(b4);
+        myBets.add(b5);
+        myBets.add(b6);
+        myBets.add(b7);
+        myBets.add(b8);
+        myBets.add(b9);
+        myBets.add(b10);
+
+
+        return new Object[]{
+                new Object[]{myBets},
+
+        };
+    }
+    @Parameters(method = "reachMaxBet")
     @Test
-    public void test_DetectCorrectNumberOfTestsAreReached_SuccesfullyDetected() {
+    public void test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected(Set<Bet> myBets) throws NoBetsMadeException {
         //arrange
+        when(bettingRound.getAllBetsMade()).thenReturn(myBets);
         //act
+        boolean result = myGame.isBettingRoundFinished();
         //assert
+        verify(bettingRound).getAllBetsMade();
+       // Assertions.assertThat(result).isTrue();
 
 
     }

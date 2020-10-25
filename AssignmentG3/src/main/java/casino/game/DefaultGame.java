@@ -127,8 +127,8 @@ public class DefaultGame extends AbstractGame {
       //  if(gameRule.getMaxBetsPerRound() == currentBettingRound.numberOFBetsMade())
         if(10 == currentBettingRound.numberOFBetsMade())
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 }

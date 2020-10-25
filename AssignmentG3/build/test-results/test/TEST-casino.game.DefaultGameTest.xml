@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T13:44:31" hostname="DESKTOP-QCAEEEG" time="0.067">
+<testsuite name="casino.game.DefaultGameTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-10-25T14:55:39" hostname="DESKTOP-QCAEEEG" time="25.99">
   <properties/>
-  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 387348807, Mock for Bet, hashCode: 933127198, Mock for Bet, hashCode: 1881890562) [0]" classname="casino.game.DefaultGameTest" time="0.028"/>
-  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsEnded(Mock for Bet, hashCode: 499919184, Mock for Bet, hashCode: 968140783, Mock for Bet, hashCode: 2110687827) [0]" classname="casino.game.DefaultGameTest" time="0.002"/>
-  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.032"/>
-  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccesfullyDetected" classname="casino.game.DefaultGameTest" time="0.0"/>
-  <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.001"/>
-  <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.002"/>
-  <testcase name="test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated" classname="casino.game.DefaultGameTest" time="0.0"/>
+  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected([Mock for Bet, hashCode: 368625195, Mock for Bet, hashCode: 392040250, Mock for Bet, hashCode: 1863034542, Mock for Bet, hashCode: 803355060, Mock for Bet, hashCode: 2096659453, Mock for Bet, hashCode: 465079431, Mock for Bet, hashCode: 691300232, Mock for Bet, hashCode: 396739715, Mock for Bet, hashCode: 675115545, Mock for Bet, hashCode: 2000555821]) [0]" classname="casino.game.DefaultGameTest" time="25.99">
+    <skipped/>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
