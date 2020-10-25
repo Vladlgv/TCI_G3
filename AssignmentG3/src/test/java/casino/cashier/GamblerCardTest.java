@@ -35,9 +35,9 @@ public class GamblerCardTest {
     }
 
 
-    //
-    //Tests to see that the getNumberOfBetIDs does return the expected number of BetIDs
-    //
+    /**
+    Tests to see that the getNumberOfBetIDs does return the expected number of BetIDs
+    */
     @Test
     @Parameters(method = "getRightValues")
     public void test_GetNumberOfBetIds_ReturnsRightNumber(int numberOfBetIds) {
@@ -53,9 +53,9 @@ public class GamblerCardTest {
         //assert
         Assertions.assertThat(expectedResult).isEqualTo(numberOfBetIds);
     }
-    ///
-    //Test the generateNewBetID method by generating multiple betIDs and making sure that the returned IDs are not duplicates
-    ///
+    /**
+    Test the generateNewBetID method by generating multiple betIDs and making sure that the returned IDs are not duplicates
+    */
     @Test
     public void test_CreateUniqueBetID_SuccessfulyCreatesBetID() {
         //arrange
@@ -74,9 +74,9 @@ public class GamblerCardTest {
 
     }
 
-    ///
-    // Test to see if The return betId does indeed return a non empty non null with no duplicates and containing only BetIDs collection
-    ///
+    /**
+     Test to see if The return betId does indeed return a non empty non null with no duplicates and containing only BetIDs collection
+    */
     @Test
     public void test_ReturnBetIdsNotEmpty_SuccessfullyReturnsListOfBetIds() {
         //arrange
@@ -97,9 +97,9 @@ public class GamblerCardTest {
         }
     }
 
-    ///
-    // Test to see if The return betId does indeed return an empty collection that is not null
-    ///
+    /**
+     Test to see if The return betId does indeed return an empty collection that is not null
+    */
     @Test
     public void test_ReturnBetIdsEmpty_SuccessfullyReturnsListOfBetIds() {
         //arrange
@@ -114,9 +114,9 @@ public class GamblerCardTest {
         Assertions.assertThat(results).isNotNull();
     }
 
-    ///
-    // make sure that the CardID is not null
-    ///
+    /**
+     make sure that the CardID is not null
+    */
     @Test
     public void test_GetCardId_isNotNull() {
         //arrange
@@ -130,9 +130,9 @@ public class GamblerCardTest {
         Assertions.assertThat(result).isNotNull();
     }
 
-    ///
-    // Test to see that the returnBetIDsAndClear does indeed return the correct collection and it clears it afterwards.
-    ///
+    /**
+     Test to see that the returnBetIDsAndClear does indeed return the correct collection and it clears it afterwards.
+    */
     @Test
     public void test_returnAllBetsClear_CorectLIstIsReturenedCardsAreDeleted() {
         //arrange
