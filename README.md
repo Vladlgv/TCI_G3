@@ -20,7 +20,6 @@ To import java sdk in intelij go to Project Structure > SDKs > select SDK path
 ### Installing
 
 
-```
 
 End with an example of getting some data out of the system or using it for a little demo
 
