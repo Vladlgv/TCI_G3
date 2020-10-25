@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="casino.idfactory.GamingMachineIDTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-25T11:06:10" hostname="DESKTOP-QCAEEEG" time="0.008">
+  <properties/>
+  <testcase name="test_CreateGamingMachineID_GamingMachineIDIsCreated" classname="casino.idfactory.GamingMachineIDTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
