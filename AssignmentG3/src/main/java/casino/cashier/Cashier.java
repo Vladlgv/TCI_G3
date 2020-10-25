@@ -5,6 +5,7 @@ import casino.bet.Bet;
 import casino.bet.MoneyAmount;
 import casino.idfactory.CardID;
 import casino.idfactory.IDFactory;
+import gamblingauthoritiy.BettingAuthority;
 import gamblingauthoritiy.IBetLoggingAuthority;
 
 import java.util.HashSet;
@@ -13,11 +14,11 @@ import java.util.Set;
 public class Cashier implements ICashier {
 
     private Set<GamblerCard> gamblerCards=new HashSet<GamblerCard>();
+    private BettingAuthority loggingAuthority; //= new BettingAuthority();
+
 
     public Cashier(IBetLoggingAuthority loggingAuthority) {
-
-    public Cashier(IBetLoggingAuthority loggingAuthority) {
-        this.loggingAuthority = loggingAuthority;
+        this.loggingAuthority = new BettingAuthority();
     }
 
     @Override
@@ -25,7 +26,7 @@ public class Cashier implements ICashier {
         CardID newCardID= (CardID)IDFactory.generateID("CardID");
         MoneyAmount newCardAmount=new MoneyAmount(0);
         GamblerCard newCard=new GamblerCard(newCardID,newCardAmount);
-        loggingAuthority.logHandOutGamblingCard(newCardID);
+        loggingAuthority.getLoggingAuthority().logHandOutGamblingCard(newCardID);
         this.gamblerCards.add(newCard);
         return newCard;
     }
@@ -33,7 +34,7 @@ public class Cashier implements ICashier {
     @Override
     public void returnGamblerCard(IGamblerCard card) {
         //BetLoggingAuthority
-        loggingAuthority.logHandInGamblingCard(card.getCardID(),card.returnBetIDs());
+        loggingAuthority.getLoggingAuthority().logHandInGamblingCard(card.getCardID(),card.returnBetIDs());
         card.returnBetIDsAndClearCard();// betID1 betID2
         card.clearCardAmount();
     }

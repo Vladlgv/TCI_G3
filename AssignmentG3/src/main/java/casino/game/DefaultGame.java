@@ -35,12 +35,6 @@ public class DefaultGame extends AbstractGame {
         this.gameRule = new GameRule();
     }
 
-    public DefaultGame(IBettingRound currentBettingRound, IGameRule gameRule, BettingAuthority bettingAuthority){
-        this.bettingAuthority = bettingAuthority;
-        this.connectedGamingMachines = new HashSet<>();
-        this.gameRule = gameRule;
-        this.currentBettingRound = currentBettingRound;
-    }
 
     //continue it make more tests for not happy paths
 
