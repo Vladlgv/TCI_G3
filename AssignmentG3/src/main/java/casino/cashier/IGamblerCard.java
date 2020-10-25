@@ -34,8 +34,17 @@ public interface IGamblerCard {
     int getNumberOfBetIDs();
 
     CardID getCardID();
+<<<<<<< HEAD
     MoneyAmount getCardAmount();
     long getAmount();
     void setCardAmount(long amount);
     void clearCardAmount();
+=======
+
+    //new methods
+    MoneyAmount getCardAmount();
+    void setCardAmount(long amount);
+    void clearCardAmount();
+    void removeBetID(BetID betID);
+>>>>>>> dev_win
 }

@@ -24,12 +24,18 @@ public class IDFactory {
     public static GeneralID generateID(String idType){
 
         //return null; // TODO replace by correct code after creating tests first.
+        // switch (idType){
+        //     case "BETID": return new BetID();
+        //     case "BETTINGROUNDID": return new BettingRoundID();
+        //     case "CARDID" : return new CardID();
+        //     case "GAMINGMACHINEID": return new GamingMachineID();
+        //     default: return null;
         switch (idType){
-            case "BETID": return new BetID();
-            case "BETTINGROUNDID": return new BettingRoundID();
-            case "CARDID" : return new CardID();
-            case "GAMINGMACHINEID": return new GamingMachineID();
-            default: return null;
+            case "BetID":return new BetID();
+            case "BettingRoundID":return new BettingRoundID();
+            case "CardID":return new CardID();
+            case "GamingMachineID":return new GamingMachineID();
+            default:return null;
         }
     };
 

@@ -32,15 +32,14 @@ public class GamblerCard implements IGamblerCard {
         Set<BetID> tempSetBetIDs=new HashSet<BetID>();
         tempSetBetIDs.addAll(this.betIDS);
         this.betIDS.clear();
-        //cardAmount = new MoneyAmount(0l);
         return tempSetBetIDs;
     }
 
     @Override
     public BetID generateNewBetID() {
-        BetID betID=(BetID) IDFactory.generateID("BetID");
-        this.betIDS.add(betID);
-        return betID;
+        BetID newBetID=(BetID) IDFactory.generateID("BetID");
+        this.betIDS.add(newBetID);
+        return newBetID;
     }
 
     @Override
@@ -59,17 +58,18 @@ public class GamblerCard implements IGamblerCard {
     }
 
     @Override
-    public long getAmount() {
-        return this.cardAmount.getAmountInCents();
-    }
-
-    @Override
     public void setCardAmount(long amount) {
         long currentAmount=this.cardAmount.getAmountInCents();
         this.cardAmount=new MoneyAmount(currentAmount+amount);
     }
+
     @Override
     public void clearCardAmount() {
         this.cardAmount=new MoneyAmount(0);
+    }
+
+    @Override
+    public void removeBetID(BetID betID) {
+        this.betIDS.remove(betID);
     }
 }

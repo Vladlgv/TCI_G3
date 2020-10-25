@@ -18,11 +18,12 @@ public abstract class GeneralID {
     }
 
     // TODO: implement necessary code. Add WHY you need it.
-
+    //used to determine the UUID of the General object
     public UUID getUniqueID() {
         return uniqueID;
     }
 
+    //used to determine the TimeStamp of the object
     public Instant getTimeStamp() {
         return timeStamp;
     }

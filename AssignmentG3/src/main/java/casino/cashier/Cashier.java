@@ -4,11 +4,17 @@ package casino.cashier;
 import casino.bet.Bet;
 import casino.bet.MoneyAmount;
 import casino.idfactory.CardID;
+import casino.idfactory.IDFactory;
 import gamblingauthoritiy.IBetLoggingAuthority;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Cashier implements ICashier {
 
-    private IBetLoggingAuthority loggingAuthority;
+    private Set<GamblerCard> gamblerCards=new HashSet<GamblerCard>();
+
+    public Cashier(IBetLoggingAuthority loggingAuthority) {
 
     public Cashier(IBetLoggingAuthority loggingAuthority) {
         this.loggingAuthority = loggingAuthority;
@@ -16,11 +22,12 @@ public class Cashier implements ICashier {
 
     @Override
     public IGamblerCard distributeGamblerCard() {
-        CardID cardID = new CardID();
-        GamblerCard newGamblerCard = new GamblerCard(cardID,new MoneyAmount(0l));
-        //BetLoggingAuthority
-        loggingAuthority.logHandOutGamblingCard(cardID);
-        return newGamblerCard;
+        CardID newCardID= (CardID)IDFactory.generateID("CardID");
+        MoneyAmount newCardAmount=new MoneyAmount(0);
+        GamblerCard newCard=new GamblerCard(newCardID,newCardAmount);
+        loggingAuthority.logHandOutGamblingCard(newCardID);
+        this.gamblerCards.add(newCard);
+        return newCard;
     }
 
     @Override
@@ -33,21 +40,18 @@ public class Cashier implements ICashier {
 
     @Override
     public boolean checkIfBetIsValid(IGamblerCard card, Bet betToCheck) throws BetNotExceptedException {
-        long cardAmount = card.getAmount();
-        long betAmount = betToCheck.getMoneyAmount().getAmountInCents();
-        if(cardAmount>=betAmount){
-            return true;
-        }
-        else{
+        if(card.getCardAmount().getAmountInCents()<betToCheck.getMoneyAmount().getAmountInCents()||betToCheck.getMoneyAmount().getAmountInCents()<0){
             throw new BetNotExceptedException();
         }
+        return true;
     }
 
     @Override
     public void addAmount(IGamblerCard card, MoneyAmount amount) throws InvalidAmountException {
-        if(amount.getAmountInCents()<=0){
+        if(amount.getAmountInCents()<0){
             throw new InvalidAmountException();
+        }else{
+            card.setCardAmount(amount.getAmountInCents());
         }
-        card.setCardAmount(amount.getAmountInCents());
     }
 }
