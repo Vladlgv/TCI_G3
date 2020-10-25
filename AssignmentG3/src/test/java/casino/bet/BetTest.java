@@ -32,7 +32,7 @@ public class BetTest {
      * Test to see if the betID is always unique;
      */
     @Test
-    public void UniqueBetID(){
+    public void uniqueBetID(){
         Set<BetID> betIDS=new HashSet<BetID>();
 
         //test with 10 times generating BetID

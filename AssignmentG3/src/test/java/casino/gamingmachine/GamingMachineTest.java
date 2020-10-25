@@ -76,7 +76,7 @@ public class GamingMachineTest {
      * Test to see if the gamblerCard is no longer connected to the gamingMachine;
      */
     @Test
-    public void CheckIfCardIsDisconnected() throws CurrentBetMadeException {
+    public void checkIfCardIsDisconnected() throws CurrentBetMadeException {
         gameMachine.connectCard(gamblerCard);
         when(iGame.isBettingRoundFinished()).thenReturn(true);
         gameMachine.disconnectCard();
@@ -87,7 +87,7 @@ public class GamingMachineTest {
      * Test to see if the NoPlayerCardException is thrown when trying to place a bet with the zero-connected-gamblerCard gamingMachine;
      */
     @Test(expected = NoPlayerCardException.class)
-    public void NoConnectedCardToPlaceBet() throws NoPlayerCardException, BetNotExceptedException {
+    public void noConnectedCardToPlaceBet() throws NoPlayerCardException, BetNotExceptedException {
         gameMachine.placeBet(10);
     }
 
@@ -95,7 +95,7 @@ public class GamingMachineTest {
      * Test to see if the CurrentBetMadeException is thrown when trying to disconnect gamblerCard from the gamingMachine while the bettingRound is not finished yet;
      */
     @Test(expected = CurrentBetMadeException.class)
-    public void CheckIfCardIsConnectedWhenOpenBet() throws CurrentBetMadeException {
+    public void checkIfCardIsConnectedWhenOpenBet() throws CurrentBetMadeException {
         when(iGame.isBettingRoundFinished()).thenReturn(false);
         gameMachine.disconnectCard();
     }

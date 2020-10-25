@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.game.BettingroundTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:21:47" hostname="DESKTOP-CSQT5FI" time="0.005">
+<testsuite name="casino.game.BettingroundTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:45:37" hostname="DESKTOP-CSQT5FI" time="0.004">
   <properties/>
-  <testcase name="test_addNullBet" classname="casino.game.BettingroundTest" time="0.001"/>
-  <testcase name="test_ReturnAllBetsInCurrentBettinground_BetsReturned([casino.bet.Bet@2a9a1b2d, casino.bet.Bet@c039153]) [0]" classname="casino.game.BettingroundTest" time="0.001"/>
-  <testcase name="test_addNewBet" classname="casino.game.BettingroundTest" time="0.001"/>
-  <testcase name="test_ReturnAmountOfBetsInCurrentBettinground_AmountReturned([casino.bet.Bet@cfcb3cc, casino.bet.Bet@2710bf53]) [0]" classname="casino.game.BettingroundTest" time="0.0"/>
-  <testcase name="test_addBetWhenBettingroundWhenFinished([casino.bet.Bet@5d298bef, casino.bet.Bet@4db00010]) [0]" classname="casino.game.BettingroundTest" time="0.001"/>
+  <testcase name="test_addNullBet" classname="casino.game.BettingroundTest" time="0.0"/>
+  <testcase name="test_ReturnAllBetsInCurrentBettinground_BetsReturned([casino.bet.Bet@52653695, casino.bet.Bet@1b350245]) [0]" classname="casino.game.BettingroundTest" time="0.0"/>
+  <testcase name="test_addNewBet" classname="casino.game.BettingroundTest" time="0.0"/>
+  <testcase name="test_ReturnAmountOfBetsInCurrentBettinground_AmountReturned([casino.bet.Bet@7d34143d, casino.bet.Bet@ea0c4ff]) [0]" classname="casino.game.BettingroundTest" time="0.001"/>
+  <testcase name="test_addBetWhenBettingroundWhenFinished([casino.bet.Bet@750a8a20, casino.bet.Bet@461e89ee]) [0]" classname="casino.game.BettingroundTest" time="0.0"/>
   <testcase name="test_generateBetID" classname="casino.game.BettingroundTest" time="0.0"/>
-  <testcase name="test_AddBetToCurrentBettinground_ReturnsTrue" classname="casino.game.BettingroundTest" time="0.001"/>
+  <testcase name="test_AddBetToCurrentBettinground_ReturnsTrue" classname="casino.game.BettingroundTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

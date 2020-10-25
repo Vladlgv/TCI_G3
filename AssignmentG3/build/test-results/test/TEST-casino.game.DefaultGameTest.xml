@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:21:47" hostname="DESKTOP-CSQT5FI" time="0.036">
+<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:45:37" hostname="DESKTOP-CSQT5FI" time="0.032">
   <properties/>
-  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 1342491164, Mock for Bet, hashCode: 56442885, Mock for Bet, hashCode: 2043986012) [0]" classname="casino.game.DefaultGameTest" time="0.007"/>
-  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected([Mock for Bet, hashCode: 676703973, Mock for Bet, hashCode: 777409046, Mock for Bet, hashCode: 1764035718, Mock for Bet, hashCode: 1124293299, Mock for Bet, hashCode: 1176823472, Mock for Bet, hashCode: 1518262912, Mock for Bet, hashCode: 469675125, Mock for Bet, hashCode: 1123134331, Mock for Bet, hashCode: 587322611, Mock for Bet, hashCode: 252162249]) [0]" classname="casino.game.DefaultGameTest" time="0.001"/>
-  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Mock for Bet, hashCode: 1906117937, Mock for Bet, hashCode: 121601332, Mock for Bet, hashCode: 1854625982) [0]" classname="casino.game.DefaultGameTest" time="0.001"/>
-  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.022"/>
+  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 1625021336, Mock for Bet, hashCode: 1072048800, Mock for Bet, hashCode: 1103683680) [0]" classname="casino.game.DefaultGameTest" time="0.006"/>
+  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected([Mock for Bet, hashCode: 1969812327, Mock for Bet, hashCode: 400308308, Mock for Bet, hashCode: 613297515, Mock for Bet, hashCode: 1283853033, Mock for Bet, hashCode: 2126986197, Mock for Bet, hashCode: 137339585, Mock for Bet, hashCode: 1570714586, Mock for Bet, hashCode: 556968898, Mock for Bet, hashCode: 1726752162, Mock for Bet, hashCode: 329296404]) [0]" classname="casino.game.DefaultGameTest" time="0.001"/>
+  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Mock for Bet, hashCode: 1893704710, Mock for Bet, hashCode: 1323742878, Mock for Bet, hashCode: 1079715528) [0]" classname="casino.game.DefaultGameTest" time="0.001"/>
+  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.02"/>
   <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.001"/>
   <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.001"/>
   <testcase name="test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated" classname="casino.game.DefaultGameTest" time="0.0"/>
