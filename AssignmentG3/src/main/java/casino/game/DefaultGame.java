@@ -29,10 +29,7 @@ public class DefaultGame extends AbstractGame {
     // need to mock the functionality that comes from the betting round and also in the beging the first betting round should be given by the
     //creating class.
     public DefaultGame(BettingRound currentBettingRound) {
-        this.bettingAuthority = new BettingAuthority();
-        this.connectedGamingMachines = new HashSet<>();
-        this.currentBettingRound = currentBettingRound;
-        this.gameRule = new GameRule();
+        super(currentBettingRound);
     }
 
 

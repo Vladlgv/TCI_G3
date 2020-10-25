@@ -30,6 +30,8 @@ public class GamingMachine implements IGamingMachine {
         this.cashier=cashier;
         this.iGame=igame;
     }
+    public GamingMachine(){
+    }
 
     @Override
     public boolean placeBet(long amountInCents) throws NoPlayerCardException, BetNotExceptedException {

@@ -32,6 +32,7 @@ public class BettingRound implements IBettingRound {
     //Define Set to store all Bets in this Betting round
     private Set<Bet> bets = new HashSet<Bet>();
 
+    //TODO: Diqin Needs to fix
     public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority,
                         IGame iGame, IBetLoggingAuthority loggingAuthority, GamingMachine gamingMachine){
         this.bettingRoundID = bettingRoundID;
@@ -42,7 +43,8 @@ public class BettingRound implements IBettingRound {
         this.gamingMachine = gamingMachine;
     }
 
-
+    public BettingRound(){
+    }
     @Override
     public BettingRoundID getBettingRoundID() {
         return null;

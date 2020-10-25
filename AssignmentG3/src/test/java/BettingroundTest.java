@@ -28,6 +28,7 @@ public class BettingroundTest {
     BettingRoundID bettingRoundID = mock(BettingRoundID.class);
     BetTokenAuthority betTokenAuthority = mock(BetTokenAuthority.class);
     IBetLoggingAuthority loggingAuthority= new BetLoggingAuthority();
+    //TODO: Win change or Diqin change
     GamingMachine gamingMachine = new GamingMachine();
     IGame iGame = mock(IGame.class);
 
