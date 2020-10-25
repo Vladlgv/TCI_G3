@@ -30,6 +30,10 @@ public class DefaultGame extends AbstractGame {
     //creating class.
     public DefaultGame(BettingRound currentBettingRound) {
         super(currentBettingRound);
+        this.currentBettingRound = currentBettingRound;
+        this.bettingAuthority = new BettingAuthority();
+        this.connectedGamingMachines = new HashSet<>();
+        this.gameRule = new GameRule();
     }
 
 

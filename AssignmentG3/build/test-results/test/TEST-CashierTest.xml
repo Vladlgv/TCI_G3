@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="CashierTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:41:14" hostname="DESKTOP-AQMEFGJ" time="0.237">
-  <properties/>
-  <testcase name="test_CheckBetValid_ReturnsTrue" classname="CashierTest" time="0.237"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
