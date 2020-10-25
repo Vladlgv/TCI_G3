@@ -91,9 +91,9 @@ public class DefaultGameTest {
         when(auxBettingRoundID.getUniqueID()).thenReturn(UUID.fromString(testUUID));
         when(auxBettingRoundID.getTimeStamp()).thenReturn(null);
         when(bettingRound.getBettingRoundID()).thenReturn(auxBettingRoundID);
-        when(bettingRound.getAllBetsMade()).thenReturn(new HashSet<>(){{add(b1);add(b2);add(b3);}});
+        when(bettingRound.getAllBetsMade()).thenReturn(new HashSet<Bet>(){{add(b1);add(b2);add(b3);}});
         //act
-        var currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
+        BettingRoundID currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
         myGame.startBettingRound();
         myGame.startBettingRound();
         //assert

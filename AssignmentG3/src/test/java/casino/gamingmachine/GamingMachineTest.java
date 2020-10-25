@@ -27,7 +27,7 @@ public class GamingMachineTest {
         MoneyAmount moneyAmount=mock(MoneyAmount.class);
         cashier.addAmount(gamblerCard,moneyAmount);
         long amountBet=moneyAmount.getAmountInCents();
-        Bet bet=new Bet((BetID)IDFactory.generateID("BetID"),new MoneyAmount(amountBet));
+        Bet bet= new Bet((BetID)IDFactory.generateID("BetID"),new MoneyAmount(amountBet));
         assertEquals(true,cashier.checkIfBetIsValid(gamblerCard,bet));
     }
 

@@ -8,6 +8,7 @@ import casino.idfactory.IDFactory;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class GamblerCard implements IGamblerCard {
 
@@ -24,14 +25,11 @@ public class GamblerCard implements IGamblerCard {
 
     @Override
     public synchronized Set<BetID>  returnBetIDsAndClearCard() {
-        synchronized (betIDS)
-        {
+
             Set<BetID> betIDSCopy = new HashSet<>();
-            betIDSCopy = Set.copyOf(betIDSCopy);
+            betIDSCopy =  betIDS.stream().collect(Collectors.toSet());
             betIDS.clear();
             return betIDSCopy;
-        }
-
     }
 
     @Override
