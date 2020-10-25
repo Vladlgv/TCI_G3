@@ -7,15 +7,12 @@ import casino.idfactory.GamingMachineID;
 
 public class GamingMachine implements IGamingMachine {
 
-<<<<<<< HEAD
-=======
     private GamingMachineID gamingMachineID;
 
     public GamingMachine(GamingMachineID gamingMachineID){
         this.gamingMachineID=gamingMachineID;
     }
 
->>>>>>> dev_win
     @Override
     public boolean placeBet(long amountInCents) throws NoPlayerCardException {
         return false;

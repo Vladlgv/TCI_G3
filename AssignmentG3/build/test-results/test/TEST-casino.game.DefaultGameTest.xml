@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="casino.game.DefaultGameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-25T15:33:39" hostname="DESKTOP-QCAEEEG" time="0.005">
+  <properties/>
+  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsEnded(Mock for Bet, hashCode: 62732997, Mock for Bet, hashCode: 2036417041, Mock for Bet, hashCode: 1420760347) [0]" classname="casino.game.DefaultGameTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
