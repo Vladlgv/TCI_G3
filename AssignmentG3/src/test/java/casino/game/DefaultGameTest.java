@@ -97,6 +97,8 @@ public class DefaultGameTest {
         myGame.startBettingRound();
         myGame.startBettingRound();
         //assert
+        verify(bettingRound,times(2)).getBettingRoundID();
+        verify(bettingRound).getAllBetsMade();
         Assertions.assertThat(myGame.getCurrentBettingRound().getBettingRoundID()).isNotSameAs(currentBettingRound);
     }
 
@@ -122,7 +124,7 @@ public class DefaultGameTest {
         //act
         boolean gameAccepted = myGame.acceptBet(mockBet,mockGamingMachine);
         //assert
-       // verify(myGame).acceptBet(mockBet,mockGamingMachine);
+        verify(bettingRound).placeBet(mockBet);
         Assertions.assertThat(gameAccepted).isTrue();
 
     }
@@ -149,7 +151,7 @@ public class DefaultGameTest {
         //act
         boolean gameAccepted = myGame.acceptBet(mockBet,mockGamingMachine);
         //assert
-        // verify(myGame).acceptBet(mockBet,mockGamingMachine);
+        verify(bettingRound).placeBet(mockBet);
         Assertions.assertThat(gameAccepted).isFalse();
 
     }
@@ -194,6 +196,7 @@ public class DefaultGameTest {
 
         myGame.determineWinner();
         //assert
+        //verify(b1).getBetID();
         Assertions.assertThat(myGame.getCurrentBettingRound()).isNull();
     }
 
@@ -282,6 +285,7 @@ public class DefaultGameTest {
 
         };
     }
+    @Ignore
     @Parameters(method = "reachMaxBet")
     @Test
     public void test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected(Set<Bet> myBets) throws NoBetsMadeException {
