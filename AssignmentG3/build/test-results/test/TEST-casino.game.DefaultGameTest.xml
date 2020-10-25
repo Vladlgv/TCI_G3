@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T21:13:47" hostname="DESKTOP-AQMEFGJ" time="0.023">
+  <properties/>
+  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 717508009, Mock for Bet, hashCode: 108978124, Mock for Bet, hashCode: 1677242707) [0]" classname="casino.game.DefaultGameTest" time="0.01"/>
+  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected([Mock for Bet, hashCode: 1085835336, Mock for Bet, hashCode: 1169063751, Mock for Bet, hashCode: 1053721368, Mock for Bet, hashCode: 2121930940, Mock for Bet, hashCode: 2047096307, Mock for Bet, hashCode: 1281763763, Mock for Bet, hashCode: 117093732, Mock for Bet, hashCode: 678163199, Mock for Bet, hashCode: 1939599788, Mock for Bet, hashCode: 248341981]) [0]" classname="casino.game.DefaultGameTest" time="0.0"/>
+  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Mock for Bet, hashCode: 1125187025, Mock for Bet, hashCode: 1261521183, Mock for Bet, hashCode: 994148106) [0]" classname="casino.game.DefaultGameTest" time="0.0"/>
+  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.011"/>
+  <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.0"/>
+  <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.001"/>
+  <testcase name="test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated" classname="casino.game.DefaultGameTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
