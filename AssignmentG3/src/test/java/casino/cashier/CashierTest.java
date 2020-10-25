@@ -23,6 +23,9 @@ public class CashierTest {
     IBetLoggingAuthority loggingAuthority= new BetLoggingAuthority();
     Cashier cashier = new Cashier(loggingAuthority);
 
+    /**
+     * Test to see if all bets id have been removed from the card;
+     */
     @Test
     public void test_RemoveBetsInCard_Works(){
         //Arrange
@@ -40,6 +43,11 @@ public class CashierTest {
 
     }
 
+    /**
+     * Test to see if all money amounts inside the card have been cleared
+     *
+     * @param moneyAmounts parameter which contains some MoneyAmount Objects
+     */
     @Test
     @Parameters(method = "getMoneys")
     public void test_RemoveAmountInCard_Works(ArrayList<MoneyAmount> moneyAmounts){
@@ -58,6 +66,12 @@ public class CashierTest {
         assertEquals(0l,gamblerCard.getCardAmount().getAmountInCents());
     }
 
+    /**
+     * Test to see if the moneyAmount have been added to the Gambler Card
+     *
+     * @param moneyAmounts
+     * @throws InvalidAmountException
+     */
     @Test
     @Parameters(method = "getMoneys")
     public void test_AddMoneyToCard_Works(ArrayList<MoneyAmount> moneyAmounts) throws InvalidAmountException {
@@ -75,6 +89,12 @@ public class CashierTest {
         assertEquals(moneyAmounts.get(0).getAmountInCents()+moneyAmounts.get(1).getAmountInCents(),gamblerCard.getCardAmount().getAmountInCents());
     }
 
+    /**
+     * Test to see if a invalid moneyAmount can be added to the Gambler Card
+     *
+     * @param moneyAmounts
+     * @throws InvalidAmountException
+     */
     @Test(expected = InvalidAmountException.class)
     @Parameters(method = "getMoneys")
     public void test_AddInvalidMoneyToCard_ReturnsException(ArrayList<MoneyAmount> moneyAmounts) throws InvalidAmountException {
@@ -109,21 +129,33 @@ public class CashierTest {
     }*/
 
 
+    /**
+     * Test to see if a Bet has been checked and added to card
+     *
+     * @throws BetNotExceptedException
+     */
     @Test
     public void test_CheckBetValid_ReturnsTrue() throws BetNotExceptedException {
         //Arrange
-        GamblerCard gamblerCard = mock(GamblerCard.class);
+        GamblerCard gamblerCard = new GamblerCard(mock(CardID.class),new MoneyAmount(100l));
         Bet bet = mock(Bet.class);
         //TODO: fix
-        when(gamblerCard.getCardAmount()).thenReturn(new MoneyAmount(100l));
+        //when(gamblerCard.getCardAmount()).thenReturn(new MoneyAmount(100l));
         when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(50l));
         //Act
         Boolean result = cashier.checkIfBetIsValid(gamblerCard,bet);
 
         //Assert
         assertEquals(true,result);
+        assertEquals(1,gamblerCard.returnBetIDs().size());
     }
 
+    /**
+     * Test to see if the money in the bet has been extract from card balance
+     *
+     * @param moneyAmounts
+     * @throws BetNotExceptedException
+     */
     @Test
     @Parameters(method = "getMoneys")
     public void test_ExtractMoney_Works(ArrayList<MoneyAmount> moneyAmounts) throws BetNotExceptedException {
@@ -140,6 +172,11 @@ public class CashierTest {
         assertEquals(50l,gamblerCard.getCardAmount().getAmountInCents());
     }
 
+    /**
+     * Test to see if a invalid bet can be placed
+     *
+     * @throws BetNotExceptedException
+     */
     @Test(expected = BetNotExceptedException.class)
     public void test_CheckBetValid_ReturnsException() throws BetNotExceptedException {
         //Arrange
@@ -152,7 +189,11 @@ public class CashierTest {
         cashier.checkIfBetIsValid(gamblerCard,bet);
     }
 
-    //
+    /**
+     * A parameter list for moneyAmount
+     *
+     * @return
+     */
     public static final Object[] getMoneys(){
         ArrayList<MoneyAmount> moneyAmounts = new ArrayList<>();
 

@@ -30,19 +30,28 @@ public class BettingroundTest {
     BettingRoundID bettingRoundID = mock(BettingRoundID.class);
     BetTokenAuthority betTokenAuthority = mock(BetTokenAuthority.class);
     IBetLoggingAuthority loggingAuthority= new BetLoggingAuthority();
-    //TODO: Win change or Diqin change
+
     GamingMachine gamingMachine = new GamingMachine();
     IGame iGame = mock(IGame.class);
 
     BettingRound bettinground = new BettingRound(bettingRoundID, iGame, gamingMachine);
 
+    /**
+     * Test to add a new bet to current betting round
+     */
     @Test
     public void test_AddBetToCurrentBettinground_ReturnsTrue(){
         //Arrange
         Bet bet = new Bet(new BetID(),new MoneyAmount(1l));
         //Act
-        bettinground.placeBet(bet);
+        boolean result =bettinground.placeBet(bet);
+        //Assert
+        assertEquals(true,result);
     }
+
+    /**
+     * Test to see when added a new bet if the size of the list BetsMade increased
+     */
     @Test
     public void test_addNewBet(){
         //Arrange
@@ -52,6 +61,9 @@ public class BettingroundTest {
         assertEquals(1,bettinground.getAllBetsMade().size());
     }
 
+    /**
+     * Test to see a null bet has been placed in betting round
+     */
     @Test(expected = IllegalArgumentException.class)
     public void test_addNullBet(){
         //Arrange
@@ -60,6 +72,10 @@ public class BettingroundTest {
         bettinground.placeBet(bet);
     }
 
+    /**
+     * Test to see bet cannot be added when a betting round is finished
+     * @param bets
+     */
     @Test
     @Parameters(method = "getBetWithValue")
     public void test_addBetWhenBettingroundWhenFinished(ArrayList<Bet> bets){
@@ -90,6 +106,10 @@ public class BettingroundTest {
 
     }*/
 
+    /**
+     * Test to return all bets in current betting round
+     * @param bets
+     */
     @Test
     @Parameters(method = "getBetWithValue")
     public void test_ReturnAllBetsInCurrentBettinground_BetsReturned(ArrayList<Bet> bets){
@@ -106,12 +126,15 @@ public class BettingroundTest {
         assertEquals(2,bettinground.getAllBetsMade().size());
     }
 
-    @Test
+    /*@Test
     public void test_ReturnBetTokenForCurrentBettinground_BetTokenReturned(){
         bettinground.getBetToken();
+    }*/
 
-    }
-
+    /**
+     * Test to get the amount of bets in current betting round
+     * @param bets
+     */
     @Test
     @Parameters(method = "getBetWithValue")
     public void test_ReturnAmountOfBetsInCurrentBettinground_AmountReturned(ArrayList<Bet> bets){
@@ -126,7 +149,10 @@ public class BettingroundTest {
         assertEquals(2,bettinground.numberOFBetsMade());
     }
 
-    //Parameters
+    /**
+     * parameter list contains some bets
+     * @return
+     */
     private static final Object[] getBetWithValue(){
         ArrayList<Bet> bets = new ArrayList<>();
 
@@ -144,6 +170,9 @@ public class BettingroundTest {
         };
     }
 
+    /**
+     * Generate BetID test
+     */
     @Test
     public void test_generateBetID() {
         //Arrange

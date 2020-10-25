@@ -47,6 +47,7 @@ public class Cashier implements ICashier {
             throw new BetNotExceptedException();
         }
         card.setCardAmount(-betAmount);
+        card.returnBetIDs().add(betToCheck.getBetID());
         return true;
     }
 
