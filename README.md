@@ -63,7 +63,7 @@ Every respective first did his work on his own branch and afterwards we merged a
 * **Tran Nguyen** - *GameRule class, GameMachine, CardID*
 * **Yang Diqin** - *BetID class, BettingRound class, Cashier class*
 
-See also the list of [contributors](https://github.com/Vladlgv/TCI_G3/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Vladlgv/TCI_G3/contributors) who participated in this project. The name of Tran Nguyen is not mentioned, because when Nguyen works only on his branch dev_win, and then he had merged Vlad's branch dev_vlad to his branch before Vlad and Diqin continued to use his branch merged with Diqin's branch before putting everything to the main branch.
 
 ## License
 
