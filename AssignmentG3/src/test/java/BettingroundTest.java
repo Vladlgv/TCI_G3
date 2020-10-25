@@ -32,7 +32,7 @@ public class BettingroundTest {
     GamingMachine gamingMachine = new GamingMachine();
     IGame iGame = mock(IGame.class);
 
-    BettingRound bettinground = new BettingRound(bettingRoundID,betTokenAuthority, iGame, loggingAuthority, gamingMachine);
+    BettingRound bettinground = new BettingRound(bettingRoundID, iGame, gamingMachine);
 
     @Test
     public void test_AddBetToCurrentBettinground_ReturnsTrue(){
@@ -72,7 +72,7 @@ public class BettingroundTest {
 
     }
 
-    /*//todo verify loggingAuthority has been invoked
+    /*
     @Test
     public void test_LoggingAuthorityInvoked(){
         //Arrange
@@ -91,7 +91,7 @@ public class BettingroundTest {
     @Test
     @Parameters(method = "getBetWithValue")
     public void test_ReturnAllBetsInCurrentBettinground_BetsReturned(ArrayList<Bet> bets){
-        //todo import bets by using parameter
+
         //Arrange
         //Bet bet = mock(Bet.class);
         when(iGame.isBettingRoundFinished()).thenReturn(false);
@@ -147,7 +147,7 @@ public class BettingroundTest {
         //Arrange
         GeneralID betID;
         //Act
-        betID = (BetID)IDFactory.generateID("BETID");
+        betID = (BetID)IDFactory.generateID("BetID");
         Assertions.assertThat(betID.getUniqueID()).isInstanceOf(UUID.class);
         Assertions.assertThat(betID.getTimeStamp()).isNotNull();
         Assertions.assertThat(betID).isNotNull();

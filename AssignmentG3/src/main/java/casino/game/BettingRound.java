@@ -6,10 +6,7 @@ import casino.cashier.GamblerCard;
 import casino.gamingmachine.GamingMachine;
 import casino.idfactory.BettingRoundID;
 import casino.idfactory.GamingMachineID;
-import gamblingauthoritiy.BetLoggingAuthority;
-import gamblingauthoritiy.BetToken;
-import gamblingauthoritiy.BetTokenAuthority;
-import gamblingauthoritiy.IBetLoggingAuthority;
+import gamblingauthoritiy.*;
 import casino.bet.Bet;
 
 import java.util.HashSet;
@@ -23,7 +20,8 @@ public class BettingRound implements IBettingRound {
     private BettingRoundID bettingRoundID;
     private BetToken betToken;
     private BetTokenAuthority betTokenAuthority;
-    private IBetLoggingAuthority loggingAuthority;
+    private BettingAuthority bettingAuthority;
+
     private GamingMachine gamingMachine;
     private IGame iGame;
     private static int MaxAmountOfBets = 10;
@@ -33,13 +31,12 @@ public class BettingRound implements IBettingRound {
     private Set<Bet> bets = new HashSet<Bet>();
 
     //TODO: Diqin Needs to fix
-    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority,
-                        IGame iGame, IBetLoggingAuthority loggingAuthority, GamingMachine gamingMachine){
+    public BettingRound(BettingRoundID bettingRoundID,IGame iGame, GamingMachine gamingMachine){
         this.bettingRoundID = bettingRoundID;
-        this.betTokenAuthority = betTokenAuthority;
+        this.betTokenAuthority = new BetTokenAuthority();
         betToken = betTokenAuthority.getBetToken(bettingRoundID);
         this.iGame =  iGame;
-        this.loggingAuthority = loggingAuthority;
+        this.bettingAuthority = new BettingAuthority();
         this.gamingMachine = gamingMachine;
     }
 
@@ -65,7 +62,7 @@ public class BettingRound implements IBettingRound {
         }
         else {
             this.bets.add(bet);
-            loggingAuthority.logAddAcceptedBet(bet,bettingRoundID,gamingMachine.getGamingMachineID());
+            this.bettingAuthority.getLoggingAuthority().logAddAcceptedBet(bet,bettingRoundID,gamingMachine.getGamingMachineID());
             return true;
         }
 

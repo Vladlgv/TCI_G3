@@ -53,8 +53,7 @@ public class CashierTest {
         //Act
         cashier.returnGamblerCard(gamblerCard);
         //Assert
-        //TODO: Diqin decide on alternative
-       // assertEquals(0l,gamblerCard.getAmount());
+        assertEquals(0l,gamblerCard.getCardAmount().getAmountInCents());
     }
 
     @Test
@@ -71,8 +70,7 @@ public class CashierTest {
         cashier.addAmount(gamblerCard,moneyAmounts.get(1));
 
         //Assert
-        //TODO: Diqin Find an alternative to those classes that were added to the interface
-        //assertEquals(moneyAmounts.get(0).getAmountInCents()+moneyAmounts.get(1).getAmountInCents(),gamblerCard.getAmount());
+        assertEquals(moneyAmounts.get(0).getAmountInCents()+moneyAmounts.get(1).getAmountInCents(),gamblerCard.getCardAmount().getAmountInCents());
     }
 
     @Test(expected = InvalidAmountException.class)
@@ -91,8 +89,7 @@ public class CashierTest {
         cashier.addAmount(gamblerCard,moneyAmounts.get(2));
 
         //Assert
-        //TODO: Diqin decide how to solve this
-        //assertEquals(0l,gamblerCard.getAmount());
+        assertEquals(0l,gamblerCard.getCardAmount().getAmountInCents());
     }
 
 
@@ -109,13 +106,14 @@ public class CashierTest {
         //Assert
     }*/
 
+
     @Test
     public void test_CheckBetValid_ReturnsTrue() throws BetNotExceptedException {
         //Arrange
         GamblerCard gamblerCard = mock(GamblerCard.class);
         Bet bet = mock(Bet.class);
-        //TODO: add something here
-      //  when(gamblerCard.getAmount()).thenReturn(100l);
+        //TODO: fix
+        when(gamblerCard.getCardAmount()).thenReturn(new MoneyAmount(100l));
         when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(50l));
         //Act
         Boolean result = cashier.checkIfBetIsValid(gamblerCard,bet);
@@ -129,8 +127,8 @@ public class CashierTest {
         //Arrange
         GamblerCard gamblerCard = mock(GamblerCard.class);
         Bet bet = mock(Bet.class);
-        //TODO: changed
-        //when(gamblerCard.getAmount()).thenReturn(50l);
+
+        when(gamblerCard.getCardAmount()).thenReturn(new MoneyAmount(50l));
         when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(100l));
         //Act
         cashier.checkIfBetIsValid(gamblerCard,bet);

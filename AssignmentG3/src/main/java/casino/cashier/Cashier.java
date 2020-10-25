@@ -41,7 +41,9 @@ public class Cashier implements ICashier {
 
     @Override
     public boolean checkIfBetIsValid(IGamblerCard card, Bet betToCheck) throws BetNotExceptedException {
-        if(card.getCardAmount().getAmountInCents()<betToCheck.getMoneyAmount().getAmountInCents()||betToCheck.getMoneyAmount().getAmountInCents()<0){
+        long cardAmount = card.getCardAmount().getAmountInCents();
+        long betAmount = betToCheck.getMoneyAmount().getAmountInCents();
+        if(cardAmount<betAmount||betAmount<0){
             throw new BetNotExceptedException();
         }
         return true;
