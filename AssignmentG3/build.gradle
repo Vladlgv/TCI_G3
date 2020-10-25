@@ -16,4 +16,6 @@ dependencies {
     compile group: 'org.mockito', name: 'mockito-core', version: '2.22.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testCompile group: 'org.easytesting', name: 'fest-assert', version: '1.4'
+    compile group: 'pl.pragmatists', name: 'JUnitParams', version: '1.0.4'
+
 }

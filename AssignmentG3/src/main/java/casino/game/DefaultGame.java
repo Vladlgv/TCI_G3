@@ -8,9 +8,9 @@ import gamblingauthoritiy.BettingAuthority;
 
 public class DefaultGame extends AbstractGame {
 
-    private BetLoggingAuthority betLoggingAuthority;
-    public DefaultGame(BetLoggingAuthority betLoggingAuthority){
-        this.betLoggingAuthority=betLoggingAuthority;
+
+    public DefaultGame(BetLoggingAuthority betLoggingAuthority) {
+        super(betLoggingAuthority);
     }
 
     @Override

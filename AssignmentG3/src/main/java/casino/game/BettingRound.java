@@ -67,16 +67,6 @@ public class BettingRound implements IBettingRound {
             return true;
         }
 
-
-       /* gamingMachine.placeBet(bet.getMoneyAmount().getAmountInCents());
-        try {
-            GamblerCard gamblerCard = gamingMachine.getGamblerCard();
-            cashier.checkIfBetIsValid(gamblerCard,bet);
-            bets.add(bet);
-            loggingAuthority.logAddAcceptedBet(bet,bettingRoundID,gamingMachine.getGamingMachineID());
-        } catch (BetNotExceptedException e) {
-            return false;
-        }*/
     }
 
     @Override
@@ -86,11 +76,11 @@ public class BettingRound implements IBettingRound {
 
     @Override
     public BetToken getBetToken() {
-        return null;
+        return this.betToken;
     }
 
     @Override
     public int numberOFBetsMade() {
-        return 0;
+        return this.bets.size();
     }
 }
