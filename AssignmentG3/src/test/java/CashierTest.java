@@ -5,12 +5,18 @@ import casino.idfactory.BetID;
 import casino.idfactory.CardID;
 import gamblingauthoritiy.BetLoggingAuthority;
 import gamblingauthoritiy.IBetLoggingAuthority;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.ArrayList;
 
 import static  org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+@RunWith(JUnitParamsRunner.class)
 public class CashierTest {
     IBetLoggingAuthority loggingAuthority= new BetLoggingAuthority();
     Cashier cashier = new Cashier(loggingAuthority);
@@ -33,13 +39,16 @@ public class CashierTest {
     }
 
     @Test
-    public void test_RemoveAmountInCard_Works(){
+    @Parameters(method = "getMoneys")
+    public void test_RemoveAmountInCard_Works(ArrayList<MoneyAmount> moneyAmounts){
         //Arrange
         CardID cardID=mock(CardID.class);
         //MoneyAmount cardAmount=mock(MoneyAmount.class);
         //when(cardAmount.getAmountInCents()).thenReturn(100l);
-        MoneyAmount cardAmount= new MoneyAmount(100l);
-        GamblerCard gamblerCard = new GamblerCard(cardID,cardAmount);
+
+        //MoneyAmount cardAmount= new MoneyAmount(100l);
+
+        GamblerCard gamblerCard = new GamblerCard(cardID,moneyAmounts.get(0));
 
         //Act
         cashier.returnGamblerCard(gamblerCard);
@@ -48,47 +57,53 @@ public class CashierTest {
     }
 
     @Test
-    public void test_AddMoneyToCard_Works() throws InvalidAmountException {
+    @Parameters(method = "getMoneys")
+    public void test_AddMoneyToCard_Works(ArrayList<MoneyAmount> moneyAmounts) throws InvalidAmountException {
         //Arrange
         CardID cardID=mock(CardID.class);
-        MoneyAmount money=mock(MoneyAmount.class);
 
-        when(money.getAmountInCents()).thenReturn(100l);
-        GamblerCard gamblerCard = new GamblerCard(cardID,money);
+        /*MoneyAmount money=mock(MoneyAmount.class);
+        when(money.getAmountInCents()).thenReturn(100l);*/
+
+        GamblerCard gamblerCard = new GamblerCard(cardID,moneyAmounts.get(0));
         //Act
-        cashier.addAmount(gamblerCard,money);
+        cashier.addAmount(gamblerCard,moneyAmounts.get(1));
 
         //Assert
-        assertEquals(money.getAmountInCents()*2,gamblerCard.getAmount());
+        assertEquals(moneyAmounts.get(0).getAmountInCents()+moneyAmounts.get(1).getAmountInCents(),gamblerCard.getAmount());
     }
 
-    @Test
-    public void test_ExtractMoney_Works() throws InvalidAmountException {
+    @Test(expected = InvalidAmountException.class)
+    @Parameters(method = "getMoneys")
+    public void test_AddInvalidMoneyToCard_ReturnsException(ArrayList<MoneyAmount> moneyAmounts) throws InvalidAmountException {
         //Arrange
         CardID cardID=mock(CardID.class);
-        MoneyAmount money=mock(MoneyAmount.class);
+        //
+        /*MoneyAmount money=mock(MoneyAmount.class);
         MoneyAmount money2=mock(MoneyAmount.class);
         when(money.getAmountInCents()).thenReturn(100l);
-        when(money2.getAmountInCents()).thenReturn(-100l);
-        GamblerCard gamblerCard = new GamblerCard(cardID,money);
+        when(money2.getAmountInCents()).thenReturn(-100l);*/
+        //
+        GamblerCard gamblerCard = new GamblerCard(cardID,moneyAmounts.get(0));
         //Act
-        cashier.addAmount(gamblerCard,money2);
+        cashier.addAmount(gamblerCard,moneyAmounts.get(2));
 
         //Assert
         assertEquals(0l,gamblerCard.getAmount());
     }
 
-    //todo invalid Amount to add and extract
 
     @Test
     public void  test_CardDistributedToGambler_CreateCardSuccessfully(){
         //Arrange
-        CardID cardID=mock(CardID.class);
-        MoneyAmount cardAmount=mock(MoneyAmount.class);
+        CardID cardID = mock(CardID.class);
+        BetLoggingAuthority betLoggingAuthority = mock(BetLoggingAuthority.class);
 
-        GamblerCard gamblerCard1 = new GamblerCard(cardID,cardAmount);
+        cashier.distributeGamblerCard();
+
+        verify(betLoggingAuthority).logHandOutGamblingCard(cardID);
         //act
-        IGamblerCard gamblerCard2 = cashier.distributeGamblerCard();
+
 
         //Assert
         //verify()
@@ -108,4 +123,37 @@ public class CashierTest {
         //Assert
         assertEquals(true,result);
     }
+
+    @Test(expected = BetNotExceptedException.class)
+    public void test_CheckBetValid_ReturnsException() throws BetNotExceptedException {
+        //Arrange
+        GamblerCard gamblerCard = mock(GamblerCard.class);
+        Bet bet = mock(Bet.class);
+
+        when(gamblerCard.getAmount()).thenReturn(50l);
+        when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(100l));
+        //Act
+        cashier.checkIfBetIsValid(gamblerCard,bet);
+
+    }
+
+    //
+    public static final Object[] getMoneys(){
+        ArrayList<MoneyAmount> moneyAmounts = new ArrayList<>();
+
+        MoneyAmount moneyAmount1 = new MoneyAmount(100);
+        MoneyAmount moneyAmount2 = new MoneyAmount(50);
+        MoneyAmount moneyAmount3 = new MoneyAmount(-20);
+
+        moneyAmounts.add(moneyAmount1);
+        moneyAmounts.add(moneyAmount2);
+        moneyAmounts.add(moneyAmount3);
+
+        return new Object[]{
+                new Object[]{
+                        moneyAmounts
+                }
+        };
+    }
+
 }

@@ -16,9 +16,10 @@ public class Cashier implements ICashier {
 
     @Override
     public IGamblerCard distributeGamblerCard() {
-        GamblerCard newGamblerCard = new GamblerCard(new CardID(),new MoneyAmount(0l));
+        CardID cardID = new CardID();
+        GamblerCard newGamblerCard = new GamblerCard(cardID,new MoneyAmount(0l));
         //BetLoggingAuthority
-        loggingAuthority.logHandOutGamblingCard(newGamblerCard.getCardID());
+        loggingAuthority.logHandOutGamblingCard(cardID);
         return newGamblerCard;
     }
 
@@ -37,12 +38,16 @@ public class Cashier implements ICashier {
         if(cardAmount>=betAmount){
             return true;
         }
-        else
-        return false;
+        else{
+            throw new BetNotExceptedException();
+        }
     }
 
     @Override
     public void addAmount(IGamblerCard card, MoneyAmount amount) throws InvalidAmountException {
+        if(amount.getAmountInCents()<=0){
+            throw new InvalidAmountException();
+        }
         card.setCardAmount(amount.getAmountInCents());
     }
 }
