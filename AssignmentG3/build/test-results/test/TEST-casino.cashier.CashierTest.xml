@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="casino.cashier.CashierTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:45:15" hostname="DESKTOP-AQMEFGJ" time="0.226">
+  <properties/>
+  <testcase name="test_ExtractMoney_Works([casino.bet.MoneyAmount@30557c5, casino.bet.MoneyAmount@46b9b339, casino.bet.MoneyAmount@505b58d2]) [0]" classname="casino.cashier.CashierTest" time="0.226"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

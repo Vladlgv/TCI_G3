@@ -1,3 +1,5 @@
+package casino.game;
+
 import casino.bet.Bet;
 import casino.bet.MoneyAmount;
 import casino.game.BettingRound;

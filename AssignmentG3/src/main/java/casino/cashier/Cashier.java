@@ -46,6 +46,7 @@ public class Cashier implements ICashier {
         if(cardAmount<betAmount||betAmount<0){
             throw new BetNotExceptedException();
         }
+        card.setCardAmount(-betAmount);
         return true;
     }
 

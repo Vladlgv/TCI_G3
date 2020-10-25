@@ -1,3 +1,5 @@
+package casino.cashier;
+
 import casino.bet.Bet;
 import casino.bet.MoneyAmount;
 import casino.cashier.*;
@@ -122,6 +124,22 @@ public class CashierTest {
         assertEquals(true,result);
     }
 
+    @Test
+    @Parameters(method = "getMoneys")
+    public void test_ExtractMoney_Works(ArrayList<MoneyAmount> moneyAmounts) throws BetNotExceptedException {
+        //Arrange
+        CardID cardID = mock(CardID.class);
+        GamblerCard gamblerCard = new GamblerCard(cardID,moneyAmounts.get(0));
+
+        Bet bet = mock(Bet.class);
+        when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(50l));
+        //Act
+        cashier.checkIfBetIsValid(gamblerCard,bet);
+
+        //Assert
+        assertEquals(50l,gamblerCard.getCardAmount().getAmountInCents());
+    }
+
     @Test(expected = BetNotExceptedException.class)
     public void test_CheckBetValid_ReturnsException() throws BetNotExceptedException {
         //Arrange
@@ -132,7 +150,6 @@ public class CashierTest {
         when(bet.getMoneyAmount()).thenReturn(new MoneyAmount(100l));
         //Act
         cashier.checkIfBetIsValid(gamblerCard,bet);
-
     }
 
     //
