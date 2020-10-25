@@ -13,7 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- *
+ * BettingRound is used to interact with bets made inside of current betting round
  */
 public class BettingRound implements IBettingRound {
 
@@ -30,7 +30,6 @@ public class BettingRound implements IBettingRound {
     //Define Set to store all Bets in this Betting round
     private Set<Bet> bets = new HashSet<Bet>();
 
-    //TODO: Diqin Needs to fix
     public BettingRound(BettingRoundID bettingRoundID,IGame iGame, GamingMachine gamingMachine){
         this.bettingRoundID = bettingRoundID;
         this.betTokenAuthority = new BetTokenAuthority();

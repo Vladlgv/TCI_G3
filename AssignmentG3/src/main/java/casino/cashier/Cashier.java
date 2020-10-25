@@ -11,10 +11,13 @@ import gamblingauthoritiy.IBetLoggingAuthority;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Cashier is used to manage Gambler Card and some doing some operation for Gambler Card
+ */
 public class Cashier implements ICashier {
 
     private Set<GamblerCard> gamblerCards=new HashSet<GamblerCard>();
-    private BettingAuthority loggingAuthority; //= new BettingAuthority();
+    private BettingAuthority loggingAuthority;
 
 
     public Cashier(IBetLoggingAuthority loggingAuthority) {
