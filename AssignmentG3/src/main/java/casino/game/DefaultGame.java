@@ -15,7 +15,8 @@ import java.util.Set;
 public class DefaultGame extends AbstractGame {
 
     private IBettingRound currentBettingRound;
-    private static BettingAuthority bettingAuthority;
+    private BettingAuthority bettingAuthority;
+    private IGameRule gameRule;
 
     public Set<GamingMachine> getConnectedGamingMachines() {
         return connectedGamingMachines;
@@ -33,21 +34,35 @@ public class DefaultGame extends AbstractGame {
         this.bettingAuthority = new BettingAuthority();
         this.connectedGamingMachines = new HashSet<>();
         this.currentBettingRound = currentBettingRound;
+        this.gameRule = new GameRule();
+    }
+
+    public DefaultGame(IBettingRound currentBettingRound, IGameRule gameRule, BettingAuthority bettingAuthority){
+        this.bettingAuthority = bettingAuthority;
+        this.connectedGamingMachines = new HashSet<>();
+        this.gameRule = gameRule;
+        this.currentBettingRound = currentBettingRound;
     }
 
     //continue it make more tests for not happy paths
     @Override
-    public void startBettingRound() {
+    public void startBettingRound() throws NoBetsMadeException {
     if(currentBettingRound == null) {
         currentBettingRound = new BettingRound();
         bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());;
     }
     else if(this.isBettingRoundFinished())
     {
-       BetToken myBetToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
-       // BetResult myBetResult = new BetResult(, new MoneyAmount(100));
-       // bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,myBetToken);
+      // BetToken myBetToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
+        BetToken myBetToken = new BetToken(currentBettingRound.getBettingRoundID());
+        BetResult myBetResult = gameRule.determineWinner(bettingAuthority.getTokenAuthority().getRandomInteger(myBetToken),currentBettingRound.getAllBetsMade());
+        bettingAuthority.getLoggingAuthority().logEndBettingRound(currentBettingRound,myBetResult);
+        currentBettingRound = new BettingRound();
         bettingAuthority.getLoggingAuthority().logStartBettingRound(this.getCurrentBettingRound());
+
+    }
+    else
+    {
 
     }
 
@@ -92,7 +107,11 @@ public class DefaultGame extends AbstractGame {
     }
 
     @Override
-    public boolean isBettingRoundFinished() {
-        return false;
+    public boolean isBettingRoundFinished() throws NoBetsMadeException {
+        if(gameRule.getMaxBetsPerRound() == currentBettingRound.numberOFBetsMade())
+        {
+            return false;
+        }
+        return true;
     }
 }
