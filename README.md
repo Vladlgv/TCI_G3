@@ -20,9 +20,6 @@ To import java sdk in intelij go to Project Structure > SDKs > select SDK path
 ### Installing
 
 
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Running the tests
 
 To run the tests inside intelij right click the java folder from the src/test forlder and select 'Run Tests in grouopAssignment....' you can also chose the option for coverage to determnine code coverage
