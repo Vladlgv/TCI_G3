@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CashierTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:51:42" hostname="DESKTOP-QCAEEEG" time="0.062">
+  <properties/>
+  <testcase name="test_AddMoneyToCard_Works([casino.bet.MoneyAmount@23a06f1d, casino.bet.MoneyAmount@29fe8dd5, casino.bet.MoneyAmount@3da59a05]) [0]" classname="CashierTest" time="0.014"/>
+  <testcase name="test_CheckBetValid_ReturnsException" classname="CashierTest" time="0.034"/>
+  <testcase name="test_AddInvalidMoneyToCard_ReturnsException([casino.bet.MoneyAmount@519eabf8, casino.bet.MoneyAmount@71e6ee51, casino.bet.MoneyAmount@2cab559d]) [0]" classname="CashierTest" time="0.0"/>
+  <testcase name="test_RemoveBetsInCard_Works" classname="CashierTest" time="0.011"/>
+  <testcase name="test_CheckBetValid_ReturnsTrue" classname="CashierTest" time="0.0"/>
+  <testcase name="test_RemoveAmountInCard_Works([casino.bet.MoneyAmount@3dcf87bf, casino.bet.MoneyAmount@192a3a95, casino.bet.MoneyAmount@5ff8db87]) [0]" classname="CashierTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

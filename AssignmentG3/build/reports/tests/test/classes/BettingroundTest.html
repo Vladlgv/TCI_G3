@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - Class casino.game.DefaultGameTest</title>
+<title>Test results - Class BettingroundTest</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>Class casino.game.DefaultGameTest</h1>
+<h1>Class BettingroundTest</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/casino.game.html">casino.game</a> &gt; DefaultGameTest</div>
+<a href="../packages/default-package.html">default-package</a> &gt; BettingroundTest</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">7</div>
+<div class="counter">8</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.034s</div>
+<div class="counter">0.040s</div>
 <p>duration</p>
 </div>
 </td>
@@ -75,38 +75,43 @@
 </tr>
 </thead>
 <tr>
-<td class="success">test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test_AcceptValidBet_BetIsSuccessful</td>
+<td class="success">test_AddBetToCurrentBettinground_ReturnsTrue</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected([Mock for Bet, hashCode: 76185742, Mock for Bet, hashCode: 1840188554, Mock for Bet, hashCode: 2137434478, Mock for Bet, hashCode: 744355958, Mock for Bet, hashCode: 2080605059, Mock for Bet, hashCode: 1776094165, Mock for Bet, hashCode: 591061593, Mock for Bet, hashCode: 1617375232, Mock for Bet, hashCode: 10004500, Mock for Bet, hashCode: 18516081]) [0]</td>
+<td class="success">test_ReturnAllBetsInCurrentBettinground_BetsReturned([casino.bet.Bet@13515d10, casino.bet.Bet@20ac775a]) [0]</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test_ReturnAmountOfBetsInCurrentBettinground_AmountReturned([casino.bet.Bet@45761af2, casino.bet.Bet@58e04f29]) [0]</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test_ReturnBetTokenForCurrentBettinground_BetTokenReturned</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test_addBetWhenBettingroundWhenFinished([casino.bet.Bet@414020f8, casino.bet.Bet@215992d]) [0]</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Mock for Bet, hashCode: 2101329993, Mock for Bet, hashCode: 322187596, Mock for Bet, hashCode: 1453695430) [0]</td>
-<td class="success">0.002s</td>
+<td class="success">test_addNewBet</td>
+<td class="success">0.019s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">test_InvalidBet_BetIsUnSuccessful</td>
-<td class="success">0.021s</td>
+<td class="success">test_addNullBet</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 754467753, Mock for Bet, hashCode: 1776653866, Mock for Bet, hashCode: 1013568103) [0]</td>
-<td class="success">0.009s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated</td>
-<td class="success">0s</td>
+<td class="success">test_generateBetID</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 </table>
