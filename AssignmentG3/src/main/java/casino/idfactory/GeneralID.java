@@ -19,4 +19,11 @@ public abstract class GeneralID {
 
     // TODO: implement necessary code. Add WHY you need it.
 
+    public UUID getUniqueID() {
+        return uniqueID;
+    }
+
+    public Instant getTimeStamp() {
+        return timeStamp;
+    }
 }

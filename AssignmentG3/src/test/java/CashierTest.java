@@ -30,8 +30,8 @@ public class CashierTest {
         //Assert
         assertEquals(0,gamblerCard.getNumberOfBetIDs());
 
-
     }
+
     @Test
     public void test_RemoveAmountInCard_Works(){
         //Arrange
