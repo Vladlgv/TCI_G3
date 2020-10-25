@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="casino.bet.BetTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:05:01" hostname="DESKTOP-AQMEFGJ" time="0.006">
   <properties/>
   <testcase name="CreateABet" classname="casino.bet.BetTest" time="0.006"/>
+=======
+<testsuite name="casino.bet.BetTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:59:53" hostname="DESKTOP-QCAEEEG" time="0.016">
+  <properties/>
+  <testcase name="CreateABet" classname="casino.bet.BetTest" time="0.015"/>
+>>>>>>> 4cf7d51f1abe3c78cebd62c8531a66affeca69e5
   <testcase name="UniqueBetID" classname="casino.bet.BetTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

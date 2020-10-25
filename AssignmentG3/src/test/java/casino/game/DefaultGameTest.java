@@ -62,9 +62,9 @@ public class DefaultGameTest {
 
     DefaultGame myGame = new DefaultGame(bettingRound);
 
-    ///
-    //Test that tries to start a new betting round after a betting round was not previously started.
-    ///
+    /**
+    Test that tries to start a new betting round after a betting round was not previously started.
+    */
     @Test
     public void test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated() throws NoBetsMadeException {
         //arrange
@@ -75,10 +75,10 @@ public class DefaultGameTest {
         Assertions.assertThat(myGameNull.getCurrentBettingRound()).isNotNull();
     }
 
-    ///
-    //Test that tries to start a new betting round after a betting round was previously started.
-    //BettingRound Needs to be implemented in order to test this class
-    ///
+    /**
+    Test that tries to start a new betting round after a betting round was previously started.
+    BettingRound Needs to be implemented in order to test this class
+    */
     @Parameters(method = "getDummyBets")
     @Test
     public void test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Bet b1, Bet b2, Bet b3) throws NoBetsMadeException {
@@ -100,9 +100,9 @@ public class DefaultGameTest {
         Assertions.assertThat(myGame.getCurrentBettingRound().getBettingRoundID()).isNotSameAs(currentBettingRound);
     }
 
-    ///
+    /**
     //Test to see if a bet that is supposed to be valid is indeed valid;
-    ///
+    */
     @Test
     public void test_AcceptValidBet_BetIsSuccessful() throws NoCurrentRoundException {
         //arrange
@@ -127,9 +127,9 @@ public class DefaultGameTest {
 
     }
 
-    ///
+    /**
     //Test to see if a bet that is supposed to not be valid is indeed not valid;
-    ///
+    */
     @Test
     public void test_InvalidBet_BetIsUnSuccessful() throws NoCurrentRoundException {
         //arrange
@@ -155,9 +155,9 @@ public class DefaultGameTest {
     }
 
 
-    ///
-    //throws an NoCurrentRoundException
-    ///
+    /**
+    throws an NoCurrentRoundException
+    */
     @Test//(expected = NoCurrentRoundException.class)
     public void test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException() throws NoCurrentRoundException {
         //arrange
@@ -183,9 +183,9 @@ public class DefaultGameTest {
         }
 
     }
-    ///
-    //test to determine that the current betting round is null after the determining the winner
-    ///
+    /**
+    test to determine that the current betting round is null after the determining the winner
+    */
     @Parameters(method = "getDummyBets")
     @Test
     public void test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Bet b1, Bet b2, Bet b3) throws NoBetsMadeException, NoCurrentRoundException {
@@ -286,9 +286,9 @@ public class DefaultGameTest {
 
         };
     }
-    ///
-    // Test to see that BettingRound ending condition is successfully determined.
-    ///
+    /**
+     Test to see that BettingRound ending condition is successfully determined.
+    */
     @Parameters(method = "reachMaxBet")
     @Test
     public void test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected(Set<Bet> myBets) throws NoBetsMadeException {

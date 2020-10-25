@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="CashierTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:05:01" hostname="DESKTOP-AQMEFGJ" time="0.031">
   <properties/>
   <testcase name="test_AddMoneyToCard_Works([casino.bet.MoneyAmount@1efa189e, casino.bet.MoneyAmount@1216504f, casino.bet.MoneyAmount@590ad241]) [0]" classname="CashierTest" time="0.007"/>
   <testcase name="test_CheckBetValid_ReturnsException" classname="CashierTest" time="0.018"/>
   <testcase name="test_AddInvalidMoneyToCard_ReturnsException([casino.bet.MoneyAmount@1b7ae67a, casino.bet.MoneyAmount@550a2363, casino.bet.MoneyAmount@75be85a5]) [0]" classname="CashierTest" time="0.0"/>
   <testcase name="test_RemoveBetsInCard_Works" classname="CashierTest" time="0.005"/>
+=======
+<testsuite name="CashierTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:59:53" hostname="DESKTOP-QCAEEEG" time="0.069">
+  <properties/>
+  <testcase name="test_AddMoneyToCard_Works([casino.bet.MoneyAmount@23a06f1d, casino.bet.MoneyAmount@29fe8dd5, casino.bet.MoneyAmount@3da59a05]) [0]" classname="CashierTest" time="0.015"/>
+  <testcase name="test_CheckBetValid_ReturnsException" classname="CashierTest" time="0.036"/>
+  <testcase name="test_AddInvalidMoneyToCard_ReturnsException([casino.bet.MoneyAmount@519eabf8, casino.bet.MoneyAmount@71e6ee51, casino.bet.MoneyAmount@2cab559d]) [0]" classname="CashierTest" time="0.0"/>
+  <testcase name="test_RemoveBetsInCard_Works" classname="CashierTest" time="0.011"/>
+>>>>>>> 4cf7d51f1abe3c78cebd62c8531a66affeca69e5
   <testcase name="test_CheckBetValid_ReturnsTrue" classname="CashierTest" time="0.0"/>
   <testcase name="test_RemoveAmountInCard_Works([casino.bet.MoneyAmount@7aa9d989, casino.bet.MoneyAmount@36aca990, casino.bet.MoneyAmount@3239851d]) [0]" classname="CashierTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

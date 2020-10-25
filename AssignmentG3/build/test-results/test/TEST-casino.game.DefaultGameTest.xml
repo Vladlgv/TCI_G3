@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:05:01" hostname="DESKTOP-AQMEFGJ" time="0.024">
   <properties/>
   <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 1939599788, Mock for Bet, hashCode: 248341981, Mock for Bet, hashCode: 1565499637) [0]" classname="casino.game.DefaultGameTest" time="0.01"/>
@@ -7,6 +8,16 @@
   <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.011"/>
   <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.0"/>
   <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.001"/>
+=======
+<testsuite name="casino.game.DefaultGameTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:59:53" hostname="DESKTOP-QCAEEEG" time="0.105">
+  <properties/>
+  <testcase name="test_createNewBettingRoundWithPreviousBettingRound_BettingRoundIsCreated(Mock for Bet, hashCode: 754467753, Mock for Bet, hashCode: 1776653866, Mock for Bet, hashCode: 1013568103) [0]" classname="casino.game.DefaultGameTest" time="0.024"/>
+  <testcase name="test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected([Mock for Bet, hashCode: 76185742, Mock for Bet, hashCode: 1840188554, Mock for Bet, hashCode: 2137434478, Mock for Bet, hashCode: 744355958, Mock for Bet, hashCode: 2080605059, Mock for Bet, hashCode: 1776094165, Mock for Bet, hashCode: 591061593, Mock for Bet, hashCode: 1617375232, Mock for Bet, hashCode: 10004500, Mock for Bet, hashCode: 18516081]) [0]" classname="casino.game.DefaultGameTest" time="0.003"/>
+  <testcase name="test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Mock for Bet, hashCode: 2101329993, Mock for Bet, hashCode: 322187596, Mock for Bet, hashCode: 1453695430) [0]" classname="casino.game.DefaultGameTest" time="0.008"/>
+  <testcase name="test_InvalidBet_BetIsUnSuccessful" classname="casino.game.DefaultGameTest" time="0.054"/>
+  <testcase name="test_AcceptValidBet_BetIsSuccessful" classname="casino.game.DefaultGameTest" time="0.002"/>
+  <testcase name="test_AcceptBetWithNoCurrentRound_ThrowNoCurrentRoundException" classname="casino.game.DefaultGameTest" time="0.003"/>
+>>>>>>> 4cf7d51f1abe3c78cebd62c8531a66affeca69e5
   <testcase name="test_createNewBettingRoundWithoutPreviousBettingRound_BettingRoundIsCreated" classname="casino.game.DefaultGameTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

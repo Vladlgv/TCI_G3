@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="casino.game.GameRuleTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:05:01" hostname="DESKTOP-AQMEFGJ" time="0.0">
   <properties/>
   <testcase name="randomWinValueNotInRangeOfSet" classname="casino.game.GameRuleTest" time="0.0"/>
   <testcase name="betsSetIsNullOrEmpty" classname="casino.game.GameRuleTest" time="0.0"/>
   <testcase name="returnMaxNumberOfBetsCanMade" classname="casino.game.GameRuleTest" time="0.0"/>
   <testcase name="randomWinValueInRangeOfSet" classname="casino.game.GameRuleTest" time="0.0"/>
+=======
+<testsuite name="casino.game.GameRuleTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:59:53" hostname="DESKTOP-QCAEEEG" time="0.006">
+  <properties/>
+  <testcase name="randomWinValueNotInRangeOfSet" classname="casino.game.GameRuleTest" time="0.002"/>
+  <testcase name="betsSetIsNullOrEmpty" classname="casino.game.GameRuleTest" time="0.001"/>
+  <testcase name="returnMaxNumberOfBetsCanMade" classname="casino.game.GameRuleTest" time="0.001"/>
+  <testcase name="randomWinValueInRangeOfSet" classname="casino.game.GameRuleTest" time="0.001"/>
+>>>>>>> 4cf7d51f1abe3c78cebd62c8531a66affeca69e5
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

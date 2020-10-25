@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public class GamingMachineIDTest {
     GeneralID gamingMacineID;
-    ///
-    //Test to see if game machine ID is properly generated
-    ///
+    /**
+    Test to see if game machine ID is properly generated
+    */
     @Test
     public void test_CreateGamingMachineID_GamingMachineIDIsCreated() {
         //arrange
@@ -24,9 +24,9 @@ public class GamingMachineIDTest {
         Assertions.assertThat(gamingMacineID).isNotNull();
     }
 
-    ///
-    //Test to see if game machine ID is properly generated
-    ///
+    /**
+    Test to see if game machine ID is properly generated
+    */
     @Test
     public void test_CreateGamingMachineID_GamingMachineIDIsCreatedWithout_IDFactory() {
         //arrange
@@ -39,9 +39,9 @@ public class GamingMachineIDTest {
         Assertions.assertThat(gamingMacineID).isNotNull();
     }
 
-    ///
-    //Test to see if game machine ID is properly generated and has different UUID
-    ///
+    /**
+    Test to see if game machine ID is properly generated and has different UUID
+    */
     @Test
     public void test_CreateGamingMachineID_GamingMachineHasDifferentUUID() {
         //arrange

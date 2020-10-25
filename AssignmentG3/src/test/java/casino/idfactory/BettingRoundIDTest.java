@@ -9,9 +9,9 @@ import java.util.UUID;
 public class BettingRoundIDTest {
     GeneralID bettingRoundID;
 
-    ///
-    //Test to see if betting Round ID is properly generated
-    ///
+    /**
+    Test to see if betting Round ID is properly generated
+    */
     @Test
     public void test_BettingRoundID_GeneratesNumber() {
         //arrange
@@ -23,9 +23,9 @@ public class BettingRoundIDTest {
         Assertions.assertThat(bettingRoundID).isNotNull();
     }
 
-    ///
-    //Test to see if betting round  ID is properly generated
-    ///
+    /**
+    Test to see if betting round  ID is properly generated
+    */
     @Test
     public void test_CreateGamingMachineID_GamingMachineIDIsCreatedWithout_IDFactory() {
         //arrange
@@ -37,9 +37,9 @@ public class BettingRoundIDTest {
         Assertions.assertThat(bettingRoundID).isNotNull();
     }
 
-    ///
-    //Test to see if betting round ID is properly generated and has different UUID
-    ///
+    /**
+    Test to see if betting round ID is properly generated and has different UUID
+    */
     @Test
     public void test_CreateGamingMachineID_GamingMachineHasDifferentUUID() {
         //arrange

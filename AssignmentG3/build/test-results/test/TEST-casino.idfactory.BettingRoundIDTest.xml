@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testsuite name="casino.idfactory.BettingRoundIDTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-10-25T20:05:01" hostname="DESKTOP-AQMEFGJ" time="0.0">
+=======
+<testsuite name="casino.idfactory.BettingRoundIDTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-10-25T19:59:53" hostname="DESKTOP-QCAEEEG" time="0.001">
+>>>>>>> 4cf7d51f1abe3c78cebd62c8531a66affeca69e5
   <properties/>
   <testcase name="test_CreateGamingMachineID_GamingMachineIDIsCreatedWithout_IDFactory" classname="casino.idfactory.BettingRoundIDTest" time="0.0"/>
   <testcase name="test_BettingRoundID_GeneratesNumber" classname="casino.idfactory.BettingRoundIDTest" time="0.0"/>
