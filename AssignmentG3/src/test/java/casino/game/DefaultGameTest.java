@@ -89,9 +89,9 @@ public class DefaultGameTest {
         when(auxBettingRoundID.getUniqueID()).thenReturn(UUID.fromString(testUUID));
         when(auxBettingRoundID.getTimeStamp()).thenReturn(null);
         when(bettingRound.getBettingRoundID()).thenReturn(auxBettingRoundID);
-        when(bettingRound.getAllBetsMade()).thenReturn(new HashSet<>(){{add(b1);add(b2);add(b3);}});
+        when(bettingRound.getAllBetsMade()).thenReturn(new HashSet<Bet>(){{add(b1);add(b2);add(b3);}});
         //act
-        var currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
+        BettingRoundID currentBettingRound= myGame.getCurrentBettingRound().getBettingRoundID();
         myGame.startBettingRound();
         myGame.startBettingRound();
         //assert
@@ -183,9 +183,12 @@ public class DefaultGameTest {
         }
 
     }
+    ///
+    //test to determine that the current betting round is null after the determining the winner
+    ///
     @Parameters(method = "getDummyBets")
     @Test
-    public void test_DetermineWinnerWithBets_CurrentBettingRoundIsEnded(Bet b1, Bet b2, Bet b3) throws NoBetsMadeException, NoCurrentRoundException {
+    public void test_DetermineWinnerWithBets_CurrentBettingRoundIsNull(Bet b1, Bet b2, Bet b3) throws NoBetsMadeException, NoCurrentRoundException {
         //arrange
         //act
         bettingRound.placeBet(b1);
@@ -283,17 +286,21 @@ public class DefaultGameTest {
 
         };
     }
-    @Ignore
+    ///
+    // Test to see that BettingRound ending condition is successfully determined.
+    ///
     @Parameters(method = "reachMaxBet")
     @Test
     public void test_DetectCorrectNumberOfTestsAreReached_SuccessfullyDetected(Set<Bet> myBets) throws NoBetsMadeException {
         //arrange
         when(bettingRound.getAllBetsMade()).thenReturn(myBets);
+        when(bettingRound.numberOFBetsMade()).thenReturn(10);
+
         //act
         boolean result = myGame.isBettingRoundFinished();
         //assert
-        verify(bettingRound).getAllBetsMade();
-        // Assertions.assertThat(result).isTrue();
+        verify(bettingRound).numberOFBetsMade();
+         Assertions.assertThat(result).isTrue();
 
 
     }

@@ -1,8 +1,12 @@
 package casino.cashier;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import casino.bet.MoneyAmount;
 import casino.idfactory.BetID;
 import casino.idfactory.CardID;
+import casino.idfactory.IDFactory;
 import gamblingauthoritiy.IBetLoggingAuthority;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -13,9 +17,6 @@ import org.junit.runner.RunWith;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(JUnitParamsRunner.class)
 public class GamblerCardTest {
@@ -33,9 +34,7 @@ public class GamblerCardTest {
         };
     }
 
-    IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
-    Cashier cashier=new Cashier(betLoggingAuthority);
-    IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
+
     //
     //Tests to see that the getNumberOfBetIDs does return the expected number of BetIDs
     //
@@ -43,6 +42,10 @@ public class GamblerCardTest {
     @Parameters(method = "getRightValues")
     public void test_GetNumberOfBetIds_ReturnsRightNumber(int numberOfBetIds) {
         //arrange
+        IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
+        Cashier cashier= mock(Cashier.class);//new Cashier(betLoggingAuthority);
+        when(cashier.distributeGamblerCard()).thenReturn(new GamblerCard((CardID)IDFactory.generateID("CardID"),new MoneyAmount(0)));
+        IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
         //act
         for(int i = 0 ; i< numberOfBetIds ; i++)
             myCard.generateNewBetID();
@@ -56,9 +59,11 @@ public class GamblerCardTest {
     @Test
     public void test_CreateUniqueBetID_SuccessfulyCreatesBetID() {
         //arrange
-        BetID mockBetId = mock(BetID.class);
         int numberOfBetIds3 = 3;
-        when(mockBetId.getUniqueID()).thenReturn(UUID.randomUUID());
+        IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
+        Cashier cashier= mock(Cashier.class);//new Cashier(betLoggingAuthority);
+        when(cashier.distributeGamblerCard()).thenReturn(new GamblerCard((CardID)IDFactory.generateID("CardID"),new MoneyAmount(0)));
+        IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
         //act
         for(int i = 0 ; i< numberOfBetIds3 ; i++)
             myCard.generateNewBetID();
@@ -75,6 +80,10 @@ public class GamblerCardTest {
     @Test
     public void test_ReturnBetIdsNotEmpty_SuccessfullyReturnsListOfBetIds() {
         //arrange
+        IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
+        Cashier cashier= mock(Cashier.class);//new Cashier(betLoggingAuthority);
+        when(cashier.distributeGamblerCard()).thenReturn(new GamblerCard((CardID)IDFactory.generateID("CardID"),new MoneyAmount(0)));
+        IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
         //act
         myCard.generateNewBetID();
         myCard.generateNewBetID();
@@ -94,6 +103,10 @@ public class GamblerCardTest {
     @Test
     public void test_ReturnBetIdsEmpty_SuccessfullyReturnsListOfBetIds() {
         //arrange
+        IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
+        Cashier cashier= mock(Cashier.class);//new Cashier(betLoggingAuthority);
+        when(cashier.distributeGamblerCard()).thenReturn(new GamblerCard((CardID)IDFactory.generateID("CardID"),new MoneyAmount(0)));
+        IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
         //act
         Set<BetID> results = myCard.returnBetIDs();
         //assert
@@ -107,6 +120,10 @@ public class GamblerCardTest {
     @Test
     public void test_GetCardId_isNotNull() {
         //arrange
+        IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
+        Cashier cashier= mock(Cashier.class);//new Cashier(betLoggingAuthority);
+        when(cashier.distributeGamblerCard()).thenReturn(new GamblerCard((CardID)IDFactory.generateID("CardID"),new MoneyAmount(0)));
+        IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
         //act
         CardID result = myCard.getCardID();
         //assert
@@ -120,6 +137,10 @@ public class GamblerCardTest {
     public void test_returnAllBetsClear_CorectLIstIsReturenedCardsAreDeleted() {
         //arrange
         Integer numberOfBets = 5;
+        IBetLoggingAuthority betLoggingAuthority=mock(IBetLoggingAuthority.class);
+        Cashier cashier= mock(Cashier.class);//new Cashier(betLoggingAuthority);
+        when(cashier.distributeGamblerCard()).thenReturn(new GamblerCard((CardID)IDFactory.generateID("CardID"),new MoneyAmount(0)));
+        IGamblerCard myCard = (GamblerCard)cashier.distributeGamblerCard();
         //act
 
         for(int i = 0 ; i < numberOfBets; i++)

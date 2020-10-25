@@ -92,7 +92,7 @@ public class DefaultGame extends AbstractGame {
             BetToken betToken = bettingAuthority.getTokenAuthority().getBetToken(currentBettingRound.getBettingRoundID());
             Integer winningNumber =  bettingAuthority.getTokenAuthority().getRandomInteger(betToken);
 
-            var winner =  gameRule.determineWinner(winningNumber,currentBettingRound.getAllBetsMade());
+            BetResult winner =  gameRule.determineWinner(winningNumber,currentBettingRound.getAllBetsMade());
 
             for(GamingMachine gameMachine : getConnectedGamingMachines())
             {
