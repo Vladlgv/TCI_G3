@@ -32,12 +32,14 @@ public class BettingRound implements IBettingRound {
     //Define Set to store all Bets in this Betting round
     private Set<Bet> bets = new HashSet<Bet>();
 
-    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority, IGame iGame, IBetLoggingAuthority loggingAuthority){
+    public BettingRound(BettingRoundID bettingRoundID,BetTokenAuthority betTokenAuthority,
+                        IGame iGame, IBetLoggingAuthority loggingAuthority, GamingMachine gamingMachine){
         this.bettingRoundID = bettingRoundID;
         this.betTokenAuthority = betTokenAuthority;
         betToken = betTokenAuthority.getBetToken(bettingRoundID);
         this.iGame =  iGame;
         this.loggingAuthority = loggingAuthority;
+        this.gamingMachine = gamingMachine;
     }
 
 
